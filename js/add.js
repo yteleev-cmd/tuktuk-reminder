@@ -19,6 +19,53 @@ function openAddReminder(){
     );
 
 
+    setDefaultDateTime();
+
+
+}
+
+
+
+
+
+function setDefaultDateTime(){
+
+
+    const now =
+    new Date();
+
+
+    const date =
+    now.toISOString()
+    .split("T")[0];
+
+
+    now.setMinutes(
+        now.getMinutes()+10
+    );
+
+
+    const time =
+    now.toTimeString()
+    .slice(0,5);
+
+
+
+    document
+    .getElementById(
+        "reminder-date"
+    )
+    .value = date;
+
+
+
+    document
+    .getElementById(
+        "reminder-time"
+    )
+    .value = time;
+
+
 }
 
 
@@ -46,6 +93,7 @@ function closeAddReminder(){
 
 
 async function saveReminder(){
+
 
 
     const text =
@@ -76,16 +124,32 @@ async function saveReminder(){
 
 
 
-
     if(!text){
+
 
         alert(
             "Введите текст"
         );
 
+
         return;
 
     }
+
+
+
+    if(!date || !time){
+
+
+        alert(
+            "Выберите дату и время"
+        );
+
+
+        return;
+
+    }
+
 
 
 
@@ -99,11 +163,10 @@ async function saveReminder(){
         );
 
 
-        button.disabled = true;
+        button.disabled=true;
 
-        button.textContent =
+        button.innerHTML =
         "Создание...";
-
 
 
 
@@ -129,7 +192,7 @@ async function saveReminder(){
         .getElementById(
             "reminder-text"
         )
-        .value = "";
+        .value="";
 
 
 
@@ -141,16 +204,10 @@ async function saveReminder(){
         }
 
 
-
     }
 
 
     catch(error){
-
-
-        console.error(
-            error
-        );
 
 
         alert(
@@ -170,9 +227,9 @@ async function saveReminder(){
         );
 
 
-        button.disabled = false;
+        button.disabled=false;
 
-        button.textContent =
+        button.innerHTML =
         "Создать";
 
 
