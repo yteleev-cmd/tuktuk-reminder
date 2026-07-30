@@ -471,7 +471,15 @@ body {
 
     position:fixed;
 
-    inset:0;
+    left:0;
+
+    right:0;
+
+    top:0;
+
+    bottom:0;
+
+    height:100dvh;
 
     display:none;
 
@@ -516,7 +524,11 @@ body {
 
     max-width:100vw;
 
-    overflow:hidden;
+    max-height:90dvh;
+
+    overflow-y:auto;
+
+    -webkit-overflow-scrolling:touch;
 
     background:var(--card);
 
@@ -526,7 +538,8 @@ body {
 
     padding:
 
-    25px 16px 35px;
+    25px 16px
+    calc(35px + env(safe-area-inset-bottom));
 
 }
 
@@ -539,8 +552,6 @@ body {
     color:var(--text);
 
 }
-
-
 
 /* =========================
    INPUTS
@@ -579,6 +590,8 @@ body {
 
     line-height:normal;
 
+    -webkit-text-size-adjust:100%;
+
 }
 
 
@@ -615,7 +628,8 @@ body {
 
 
 
-/* iOS */
+/* iOS date/time */
+
 
 .sheet-box input::-webkit-date-and-time-value {
 
@@ -677,5 +691,65 @@ body {
     font-size:16px;
 
     font-weight:700;
+
+}
+
+
+
+/* =========================
+   iOS TELEGRAM FIX
+========================= */
+
+
+@supports (-webkit-touch-callout:none) {
+
+
+    .sheet {
+
+        height:100dvh;
+
+    }
+
+
+
+    .sheet-box {
+
+        max-height:90dvh;
+
+        padding-top:20px;
+
+        padding-bottom:
+        calc(35px + env(safe-area-inset-bottom));
+
+    }
+
+
+
+    .sheet-box h2 {
+
+        margin-bottom:15px;
+
+    }
+
+
+}
+
+
+/* =========================
+   MOBILE SAFE AREA
+========================= */
+
+
+@media (max-width:700px) {
+
+
+    .app {
+
+        padding-left:14px;
+
+        padding-right:14px;
+
+    }
+
 
 }
