@@ -285,9 +285,7 @@ body {
 
     padding:15px;
 
-    border:
-
-    1px solid var(--border);
+    border:1px solid var(--border);
 
     border-radius:19px;
 
@@ -299,9 +297,7 @@ body {
 
 .reminder.overdue {
 
-    border-left:
-
-    5px solid var(--danger);
+    border-left:5px solid var(--danger);
 
 }
 
@@ -485,17 +481,13 @@ body {
 
     margin:35px auto;
 
-    border:
-
-    4px solid var(--accent-soft);
+    border:4px solid var(--accent-soft);
 
     border-top-color:var(--accent);
 
     border-radius:50%;
 
-    animation:
-
-    spin .8s linear infinite;
+    animation:spin .8s linear infinite;
 
 }
 
@@ -526,33 +518,27 @@ body {
 
     bottom:25px;
 
-
     width:58px;
 
     height:58px;
-
 
     border:0;
 
     border-radius:50%;
 
-
     background:var(--accent);
 
     color:white;
 
-
     font-size:34px;
 
     font-weight:300;
-
 
     display:flex;
 
     align-items:center;
 
     justify-content:center;
-
 
     box-shadow:
 
@@ -564,7 +550,6 @@ body {
         225,
         .35
     );
-
 
     z-index:100;
 
@@ -636,19 +621,21 @@ body {
 
     bottom:0;
 
+    width:100%;
+
+    max-width:100%;
+
+    overflow:hidden;
 
     background:var(--card);
-
 
     border-radius:
 
     25px 25px 0 0;
 
-
     padding:
 
     25px 18px 35px;
-
 
     animation:
 
@@ -662,16 +649,14 @@ body {
 
     from {
 
-        transform:
-        translateY(100%);
+        transform:translateY(100%);
 
     }
 
 
     to {
 
-        transform:
-        translateY(0);
+        transform:translateY(0);
 
     }
 
@@ -683,58 +668,81 @@ body {
 
     margin-top:0;
 
+    margin-bottom:20px;
+
     color:var(--text);
 
 }
 
+
+
+/* INPUTS */
 
 
 .sheet-box input {
 
     width:100%;
 
-    padding:14px;
+    max-width:100%;
+
+    min-width:0;
+
+    height:50px;
+
+    padding:0 14px;
 
     margin-bottom:12px;
 
-
-    border:
-
-    1px solid var(--border);
-
+    border:1px solid var(--border);
 
     border-radius:14px;
 
-
     font-size:16px;
-
 
     color:var(--text);
 
     background:white;
 
+    display:block;
+
+    box-sizing:border-box;
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
 }
 
+
+
+.sheet-box input[type="date"],
+
+.sheet-box input[type="time"] {
+
+    overflow:hidden;
+
+}
+
+
+
+/* BUTTON */
 
 
 .save-button {
 
     width:100%;
 
-    padding:14px;
+    height:50px;
 
+    padding:0;
 
     border:0;
 
-
     border-radius:15px;
-
 
     background:var(--accent);
 
-
     color:white;
-
 
     font-size:16px;
 
