@@ -11,7 +11,7 @@ from "./utils.js";
 
 
 import {
-    completeReminder
+    completeReminder as sendCompleteReminder
 }
 from "./api.js";
 
@@ -258,16 +258,23 @@ items.map(item=>card(item)).join("")
 function card(item){
 
 
+const completed =
+item.status === "Выполнено";
+
+
+
 return `
 
-<article class="reminder">
+<article class="reminder ${completed ? "completed" : ""}">
 
 
 <div class="reminder-top">
 
 
 <div class="reminder-icon">
-🔔
+
+${completed ? "✅" : "🔔"}
+
 </div>
 
 
@@ -296,7 +303,6 @@ ${escapeHtml(item.text)}
 </div>
 
 
-
 </div>
 
 
@@ -309,11 +315,13 @@ ${escapeHtml(item.text)}
 <div class="reminder-actions">
 
 
+
 <button
 class="done"
-onclick="completeReminder('${item.id}')">
+onclick="completeReminder('${item.id}')"
+${completed ? "disabled" : ""}>
 
-✓ Выполнено
+${completed ? "✓ Выполнено" : "✓ Выполнить"}
 
 </button>
 
@@ -327,6 +335,7 @@ onclick="openReminderMenu('${item.id}')">
 ⋮
 
 </button>
+
 
 
 </div>
@@ -362,7 +371,7 @@ async function(id){
     try{
 
 
-        await completeReminder(id);
+        await sendCompleteReminder(id);
 
 
 
