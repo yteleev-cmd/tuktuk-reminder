@@ -4,11 +4,8 @@
 
 
 * {
-
     box-sizing:border-box;
-
     -webkit-tap-highlight-color:transparent;
-
 }
 
 
@@ -16,34 +13,22 @@
 :root {
 
     --bg:#f3f5f9;
-
     --card:#ffffff;
-
     --text:#1d2433;
-
     --muted:#7b8494;
-
     --accent:#5b6ee1;
-
     --accent-soft:#e9ecff;
-
     --danger:#e45b5b;
-
     --danger-soft:#ffe9e9;
-
     --border:#e5e8ef;
 
 }
 
 
 
-/* BODY */
-
-
 body {
 
     margin:0;
-
     min-height:100vh;
 
     font-family:Arial,sans-serif;
@@ -58,13 +43,9 @@ body {
 
 
 
-/* APP */
-
-
 .app {
 
     width:100%;
-
     max-width:650px;
 
     margin:auto;
@@ -75,9 +56,7 @@ body {
 
 
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 
 .header {
@@ -122,8 +101,8 @@ body {
 
     border-radius:18px;
 
-    background:
 
+    background:
     linear-gradient(
         135deg,
         #6677ed,
@@ -176,9 +155,7 @@ body {
 
 
 
-/* =========================
-   TABS
-========================= */
+/* TABS */
 
 
 .tabs {
@@ -225,9 +202,7 @@ body {
 
 
 
-/* =========================
-   SECTIONS
-========================= */
+/* SECTIONS */
 
 
 .section {
@@ -274,9 +249,7 @@ body {
 
 
 
-/* =========================
-   CARDS
-========================= */
+/* CARDS */
 
 
 .reminder {
@@ -343,6 +316,8 @@ body {
 
     flex:1;
 
+    min-width:0;
+
 }
 
 
@@ -371,6 +346,9 @@ body {
 
 }
 
+
+
+/* BUTTONS */
 
 
 .reminder-actions {
@@ -421,9 +399,7 @@ body {
 
 
 
-/* =========================
-   EMPTY / ERROR
-========================= */
+/* STATES */
 
 
 .state {
@@ -496,18 +472,14 @@ body {
 @keyframes spin {
 
     to {
-
         transform:rotate(360deg);
-
     }
 
 }
 
 
 
-/* =========================
-   FLOATING BUTTON
-========================= */
+/* FLOATING BUTTON */
 
 
 .add-button {
@@ -518,27 +490,38 @@ body {
 
     bottom:25px;
 
+
     width:58px;
 
     height:58px;
+
 
     border:0;
 
     border-radius:50%;
 
+
     background:var(--accent);
 
     color:white;
 
-    font-size:34px;
+
+    font-size:32px;
 
     font-weight:300;
+
+    line-height:1;
+
+
+    padding:0;
+
 
     display:flex;
 
     align-items:center;
 
     justify-content:center;
+
 
     box-shadow:
 
@@ -550,6 +533,7 @@ body {
         225,
         .35
     );
+
 
     z-index:100;
 
@@ -565,9 +549,7 @@ body {
 
 
 
-/* =========================
-   BOTTOM SHEET
-========================= */
+/* BOTTOM SHEET */
 
 
 .sheet {
@@ -599,13 +581,7 @@ body {
     inset:0;
 
     background:
-
-    rgba(
-        0,
-        0,
-        0,
-        .35
-    );
+    rgba(0,0,0,.35);
 
 }
 
@@ -621,24 +597,19 @@ body {
 
     bottom:0;
 
-    width:100%;
-
-    max-width:100%;
-
-    overflow:hidden;
 
     background:var(--card);
 
-    border-radius:
 
+    border-radius:
     25px 25px 0 0;
 
-    padding:
 
+    padding:
     25px 18px 35px;
 
-    animation:
 
+    animation:
     slideUp .25s ease;
 
 }
@@ -648,16 +619,11 @@ body {
 @keyframes slideUp {
 
     from {
-
         transform:translateY(100%);
-
     }
 
-
     to {
-
         transform:translateY(0);
-
     }
 
 }
@@ -667,8 +633,6 @@ body {
 .sheet-box h2 {
 
     margin-top:0;
-
-    margin-bottom:20px;
 
     color:var(--text);
 
@@ -685,66 +649,73 @@ body {
 
     max-width:100%;
 
-    min-width:0;
 
-    height:50px;
+    padding:14px;
 
-    padding:0 14px;
 
     margin-bottom:12px;
 
+
     border:1px solid var(--border);
+
 
     border-radius:14px;
 
+
     font-size:16px;
+
 
     color:var(--text);
 
+
     background:white;
+
 
     display:block;
 
-    box-sizing:border-box;
+}
+
+
+
+/* DATE TIME FIX */
+
+.sheet-box input[type="date"],
+.sheet-box input[type="time"] {
 
     appearance:none;
 
     -webkit-appearance:none;
 
-}
-
-
-
-.sheet-box input[type="date"],
-
-.sheet-box input[type="time"] {
-
-    overflow:hidden;
+    width:100%;
 
 }
 
 
 
-/* BUTTON */
+/* SAVE */
 
 
 .save-button {
 
     width:100%;
 
-    height:50px;
+    padding:14px;
 
-    padding:0;
 
     border:0;
 
+
     border-radius:15px;
+
 
     background:var(--accent);
 
+
     color:white;
 
+
     font-size:16px;
+
 
     font-weight:700;
 
