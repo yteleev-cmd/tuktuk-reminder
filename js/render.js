@@ -1,16 +1,100 @@
 import {
-filterReminders,
-getDate,
-isToday
+    getReminders
 }
-from "./reminders.js";
+from "./state.js";
 
 
 import {
-escapeHtml,
-escapeAttribute
+    escapeHtml,
+    escapeAttribute
 }
 from "./utils.js";
+
+
+
+let currentTab = "all";
+
+
+
+export function setTab(tab,button){
+
+
+    currentTab = tab;
+
+
+    document
+    .querySelectorAll(".tab")
+    .forEach(item=>{
+
+        item.classList.remove(
+            "active"
+        );
+
+    });
+
+
+
+    button.classList.add(
+        "active"
+    );
+
+
+    render();
+
+}
+
+
+
+
+function getDate(item){
+
+
+    return new Date(
+
+        item.date
+        +
+        "T"
+        +
+        (
+            item.time || "00:00"
+        )
+
+    );
+
+}
+
+
+
+
+function isToday(date){
+
+
+    const now =
+    new Date();
+
+
+    return (
+
+        date.getFullYear()
+        ===
+        now.getFullYear()
+
+        &&
+
+        date.getMonth()
+        ===
+        now.getMonth()
+
+        &&
+
+        date.getDate()
+        ===
+        now.getDate()
+
+    );
+
+}
+
 
 
 
@@ -18,126 +102,96 @@ from "./utils.js";
 export function render(){
 
 
-const content =
-document.getElementById(
-"content"
-);
+    const content =
+    document.getElementById(
+        "content"
+    );
+
+
+    const now =
+    new Date();
+
+
+    const reminders =
+    getReminders();
 
 
 
-const now =
-new Date();
+    const filtered =
+    reminders.filter(item=>{
+
+
+        const date =
+        getDate(item);
 
 
 
-const filtered =
-filterReminders();
+        if(currentTab==="today"){
+
+            return isToday(date);
+
+        }
 
 
 
-if(filtered.length===0){
+        if(currentTab==="future"){
+
+            return (
+                date >= now
+                &&
+                !isToday(date)
+            );
+
+        }
 
 
-content.innerHTML = `
 
-<div class="state">
+        return true;
 
-<div class="state-icon">
-🎉
-</div>
 
-<div class="state-title">
-Напоминаний нет
-</div>
-
-<div class="state-text">
-Всё спокойно
-</div>
-
-</div>
-
-`;
-
-return;
-
-}
+    });
 
 
 
 
-const overdue =
-filtered.filter(
-item=>
-getDate(item)<now
-);
+    if(filtered.length===0){
+
+
+        content.innerHTML = `
+
+        <div class="state">
+
+            <div class="state-icon">
+            🎉
+            </div>
+
+            <div class="state-title">
+            Напоминаний нет
+            </div>
+
+            <div class="state-text">
+            Всё спокойно
+            </div>
+
+        </div>
+
+        `;
+
+
+        return;
+
+    }
 
 
 
-const today =
-filtered.filter(item=>
 
-isToday(getDate(item))
-&&
-getDate(item)>=now
+    content.innerHTML =
 
-);
-
-
-
-const future =
-filtered.filter(item=>
-
-!isToday(getDate(item))
-&&
-getDate(item)>=now
-
-);
-
-
-
-let html="";
-
-
-
-if(overdue.length){
-
-html += section(
-"🔴",
-"Просрочено",
-overdue,
-true
-);
-
-}
-
-
-
-if(today.length){
-
-html += section(
-"🟡",
-"Сегодня",
-today
-);
-
-}
-
-
-
-if(future.length){
-
-html += section(
-"🟢",
-"Позже",
-future
-);
-
-}
-
-
-
-content.innerHTML =
-html;
+    section(
+        "🟢",
+        "Напоминания",
+        filtered
+    );
 
 
 }
@@ -145,14 +199,7 @@ html;
 
 
 
-
-
-function section(
-icon,
-title,
-items,
-overdue=false
-){
+function section(icon,title,items){
 
 
 return `
@@ -167,29 +214,23 @@ ${icon}
 ${title}
 
 <span class="section-count">
-
 ${items.length}
-
 </span>
+
 
 </div>
 
 
+
 ${
 
-items.map(item=>
-
-card(
-item,
-overdue
-)
-
-).join("")
+items.map(item=>card(item)).join("")
 
 }
 
 
 </section>
+
 
 `;
 
@@ -199,16 +240,12 @@ overdue
 
 
 
-function card(
-item,
-overdue
-){
+function card(item){
 
 
 return `
 
-
-<article class="reminder ${overdue?"overdue":""}">
+<article class="reminder">
 
 
 <div class="reminder-top">
@@ -233,13 +270,14 @@ ${escapeHtml(item.text)}
 
 <div class="reminder-date">
 
-📅 ${item.date}
+📅 ${escapeHtml(item.date)}
 
 ·
 
-⏰ ${item.time}
+⏰ ${escapeHtml(item.time)}
 
 </div>
+
 
 
 </div>
@@ -259,7 +297,6 @@ ${escapeHtml(item.text)}
 </button>
 
 
-
 <button class="more">
 
 ⋮
@@ -270,9 +307,14 @@ ${escapeHtml(item.text)}
 </div>
 
 
+
 </article>
 
 
 `;
 
 }
+
+
+
+window.setTab = setTab;

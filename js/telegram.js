@@ -1,20 +1,14 @@
 export const tg =
-window.Telegram
-?
-window.Telegram.WebApp
-:
-null;
+window.Telegram?.WebApp || null;
 
 
-
-if(tg){
+if (tg) {
 
     tg.ready();
 
     tg.expand();
 
 }
-
 
 
 
@@ -34,9 +28,8 @@ export function getUserId(){
     }
 
 
-    // тест в браузере
+    // тест в обычном браузере
 
     return "264483752";
-
 
 }

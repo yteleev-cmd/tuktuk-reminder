@@ -1,8 +1,4 @@
-export let reminders = [];
-
-
-export let currentTab = "all";
-
+let reminders = [];
 
 
 export function setReminders(data){
@@ -13,8 +9,8 @@ export function setReminders(data){
 
 
 
-export function setCurrentTab(tab){
+export function getReminders(){
 
-    currentTab = tab;
+    return reminders;
 
 }

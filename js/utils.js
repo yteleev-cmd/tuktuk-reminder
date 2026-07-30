@@ -2,7 +2,9 @@ export function escapeHtml(value){
 
 
     const div =
-    document.createElement("div");
+    document.createElement(
+        "div"
+    );
 
 
     div.textContent =
@@ -12,7 +14,6 @@ export function escapeHtml(value){
 
 
     return div.innerHTML;
-
 
 }
 

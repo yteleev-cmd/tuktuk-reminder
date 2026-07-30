@@ -27,8 +27,7 @@ export async function fetchReminders(){
 
             body:JSON.stringify({
 
-                user_id:
-                getUserId()
+                user_id:getUserId()
 
             })
 
@@ -44,7 +43,7 @@ export async function fetchReminders(){
 
 
     console.log(
-        "Ответ Make:",
+        "Сырой ответ Make:",
         text
     );
 
@@ -74,44 +73,69 @@ export async function fetchReminders(){
 
 
 
+    if(data.body){
+
+        data =
+        typeof data.body === "string"
+
+        ?
+
+        JSON.parse(data.body)
+
+        :
+
+        data.body;
+
+    }
+
+
+
+    console.log(
+        "Ответ Make:",
+        data
+    );
+
+
+
     if(
-        !data.success
+        !data ||
+        data.success !== true
     ){
 
         throw new Error(
-            "Ошибка ответа Make"
+            "Некорректный ответ Make"
         );
 
     }
 
 
 
-    return normalize(
-        data.reminders || []
-    );
+    let result =
+    data.reminders || [];
 
-
-}
-
-
-
-
-
-function normalize(list){
 
 
     if(
-        typeof list === "string"
+        typeof result === "string"
     ){
 
-        list =
-        JSON.parse(list);
+        result =
+        JSON.parse(result);
 
     }
 
 
 
-    return list.map(item=>{
+    if(!Array.isArray(result)){
+
+        result =
+        [result];
+
+    }
+
+
+
+    return result.map(item=>{
 
 
         if(
@@ -127,47 +151,39 @@ function normalize(list){
 
         return {
 
-
-            id:
-            String(
+            id:String(
                 item.id ?? ""
             ),
 
 
-
-            text:
-            String(
-                item.text ?? "Без текста"
+            text:String(
+                item.text ??
+                "Без текста"
             ),
 
 
-
-            date:
-            String(
-                item.date ?? ""
+            date:String(
+                item.date ??
+                ""
             ),
 
 
-
-            time:
-            String(
-                item.time ?? ""
+            time:String(
+                item.time ??
+                ""
             ),
 
 
-
-            repeat:
-            String(
-                item.repeat ?? ""
+            repeat:String(
+                item.repeat ??
+                ""
             ),
 
 
-
-            status:
-            String(
-                item.status ?? ""
+            status:String(
+                item.status ??
+                ""
             )
-
 
         };
 
