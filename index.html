@@ -138,11 +138,12 @@ onclick="setTab('future',this)">
 
 
 
-
 <button
 type="button"
 class="add-button"
 onclick="openAddReminder()">
+
++
 
 </button>
 
@@ -151,8 +152,8 @@ onclick="openAddReminder()">
 
 
 
-
 </div>
+
 
 
 
@@ -193,30 +194,54 @@ onclick="closeAddReminder()">
 
 
 
+
 <input
+
 id="reminder-text"
+
 type="text"
+
 autocomplete="off"
+
+inputmode="text"
+
 placeholder="Что нужно сделать?"
+
 >
 
 
 
 
 
+
+
 <input
+
 id="reminder-date"
+
 type="date"
+
+autocomplete="off"
+
 >
+
+
 
 
 
 
 
 <input
+
 id="reminder-time"
+
 type="time"
+
+autocomplete="off"
+
 >
+
+
 
 
 
@@ -224,8 +249,11 @@ type="time"
 
 
 <button
+
 type="button"
+
 class="save-button"
+
 onclick="saveReminder()">
 
 Создать
@@ -237,12 +265,6 @@ onclick="saveReminder()">
 
 
 
-</div>
-
-
-
-
-
 
 </div>
 
@@ -251,13 +273,13 @@ onclick="saveReminder()">
 
 
 
+</div>
 
 
 
-<script
-type="module"
-src="./js/app.js">
-</script>
+
+
+
 
 
 
@@ -266,6 +288,12 @@ type="module"
 src="./js/add.js">
 </script>
 
+
+
+<script
+type="module"
+src="./js/app.js">
+</script>
 
 
 
@@ -301,12 +329,36 @@ new Date();
 if(date){
 
 
+const year =
+now.getFullYear();
+
+
+const month =
+String(
+now.getMonth()+1
+)
+.padStart(2,"0");
+
+
+const day =
+String(
+now.getDate()
+)
+.padStart(2,"0");
+
+
+
+date.min =
+`${year}-${month}-${day}`;
+
+
+
 date.value =
-now.toISOString()
-.split("T")[0];
+`${year}-${month}-${day}`;
 
 
 }
+
 
 
 
@@ -317,6 +369,7 @@ if(time){
 now.setHours(
 now.getHours()+1
 );
+
 
 
 time.value =
@@ -331,8 +384,9 @@ now.toTimeString()
 });
 
 
-
 </script>
+
+
 
 
 
