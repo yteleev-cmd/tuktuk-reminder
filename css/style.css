@@ -32,9 +32,6 @@ body {
 
 
 
-/* BODY */
-
-
 body {
 
     margin:0;
@@ -404,13 +401,22 @@ body {
 
     justify-content:center;
 
-    font-size:36px;
+    z-index:100;
+
+}
+
+
+.add-button::after {
+
+    content:"+";
+
+    font-size:38px;
 
     font-weight:300;
 
-    line-height:58px;
+    line-height:1;
 
-    z-index:100;
+    transform:translateY(-2px);
 
 }
 
@@ -472,6 +478,8 @@ body {
 
     width:100%;
 
+    max-width:100%;
+
     overflow:hidden;
 
     background:var(--card);
@@ -503,8 +511,6 @@ body {
 
     width:100%;
 
-    max-width:100%;
-
     height:52px;
 
     padding:0 14px;
@@ -523,39 +529,43 @@ body {
 
     font-family:Arial,sans-serif;
 
+    display:block;
+
 }
 
 
 
 /* DATE TIME */
 
-
 .sheet-box input[type="date"],
 .sheet-box input[type="time"] {
 
     width:100%;
 
-    height:52px;
-
     max-width:100%;
 
-    padding:0 12px;
+    height:52px;
 
-    -webkit-appearance:auto;
+    min-width:0;
 
-    appearance:auto;
+    padding:0 14px;
+
+    font-size:16px;
+
+    -webkit-appearance:none;
+
+    appearance:none;
 
 }
 
 
 
-.sheet-box input::-webkit-date-and-time-value {
+/* iOS FIX */
+
+.sheet-box input[type="date"]::-webkit-date-and-time-value,
+.sheet-box input[type="time"]::-webkit-date-and-time-value {
 
     text-align:left;
-
-    padding-top:0;
-
-    padding-bottom:0;
 
 }
 
