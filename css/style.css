@@ -97,10 +97,10 @@ body {
 }
 
 
+
 .logo-icon {
 
     width:52px;
-
     height:52px;
 
     display:flex;
@@ -123,6 +123,7 @@ body {
 }
 
 
+
 .logo-title {
 
     font-size:23px;
@@ -130,6 +131,7 @@ body {
     font-weight:800;
 
 }
+
 
 
 .logo-subtitle {
@@ -142,9 +144,6 @@ body {
 
 }
 
-
-
-/* REFRESH */
 
 
 .refresh {
@@ -181,6 +180,7 @@ body {
 }
 
 
+
 .tab {
 
     flex:1;
@@ -200,6 +200,7 @@ body {
     font-weight:700;
 
 }
+
 
 
 .tab.active {
@@ -329,6 +330,7 @@ body {
 }
 
 
+
 .done {
 
     flex:1;
@@ -423,9 +425,13 @@ body {
     z-index:100;
 
     box-shadow:
-    0 10px 25px rgba(91,110,225,.35);
+
+    0 10px 25px
+
+    rgba(91,110,225,.35);
 
 }
+
 
 
 .add-button::before {
@@ -440,9 +446,7 @@ body {
 
     font-weight:300;
 
-    line-height:38px;
-
-    height:38px;
+    line-height:1;
 
     transform:translateY(-1px);
 
@@ -517,9 +521,11 @@ body {
     background:var(--card);
 
     border-radius:
+
     25px 25px 0 0;
 
     padding:
+
     25px 16px 35px;
 
 }
@@ -543,6 +549,8 @@ body {
 
 .sheet-box input {
 
+    display:block;
+
     width:100%;
 
     max-width:100%;
@@ -551,9 +559,11 @@ body {
 
     height:52px;
 
+    margin:0 0 12px 0;
+
     padding:0 14px;
 
-    margin-bottom:12px;
+    box-sizing:border-box;
 
     border:1px solid var(--border);
 
@@ -567,17 +577,19 @@ body {
 
     font-family:Arial,sans-serif;
 
-    display:block;
+    line-height:normal;
 
 }
 
 
 
-/* DATE TIME FIX */
+/* DATE TIME */
 
 
 .sheet-box input[type="date"],
 .sheet-box input[type="time"] {
+
+    display:block;
 
     width:100%;
 
@@ -587,9 +599,13 @@ body {
 
     height:52px;
 
+    min-height:52px;
+
     padding:0 14px;
 
     box-sizing:border-box;
+
+    line-height:normal;
 
     -webkit-appearance:none;
 
@@ -603,7 +619,39 @@ body {
 
 .sheet-box input::-webkit-date-and-time-value {
 
-    text-align:left;
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    height:52px;
+
+    line-height:normal;
+
+}
+
+
+
+.sheet-box input::-webkit-datetime-edit {
+
+    display:flex;
+
+    align-items:center;
+
+    height:52px;
+
+}
+
+
+
+.sheet-box input::-webkit-datetime-edit-fields-wrapper {
+
+    display:flex;
+
+    align-items:center;
+
+    height:52px;
 
 }
 
