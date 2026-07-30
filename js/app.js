@@ -18,6 +18,7 @@ from "./render.js";
 
 
 
+// Загрузка списка
 
 window.loadReminders =
 async function(){
@@ -27,6 +28,7 @@ async function(){
     document.getElementById(
         "content"
     );
+
 
 
     content.innerHTML =
@@ -42,7 +44,9 @@ async function(){
 
 
 
-        setReminders(data);
+        setReminders(
+            data
+        );
 
 
 
@@ -55,36 +59,44 @@ async function(){
     catch(error){
 
 
+
         console.error(
             error
         );
 
 
-        content.innerHTML = `
+
+        content.innerHTML =
+
+        `
 
         <div class="state">
 
 
             <div class="state-icon">
-            ⚠️
+                ⚠️
             </div>
+
 
 
             <div class="state-title">
-            Ошибка
+                Ошибка
             </div>
+
 
 
             <div class="state-text">
 
-            ${error.message}
+                ${error.message}
 
             </div>
+
 
 
         </div>
 
         `;
+
 
 
     }
@@ -96,19 +108,6 @@ async function(){
 
 
 
-window.openAddReminder =
-function(){
-
-
-    alert(
-        "Создание напоминания"
-    );
-
-
-};
-
-
-
-
+// Старт приложения
 
 loadReminders();

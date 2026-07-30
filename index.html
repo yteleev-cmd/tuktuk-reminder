@@ -23,6 +23,7 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
 <div class="app">
 
 
+
 <header class="header">
 
 
@@ -56,12 +57,15 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
 
 
 
-<button class="refresh"
+<button
+type="button"
+class="refresh"
 onclick="loadReminders()">
 
 ↻
 
 </button>
+
 
 
 </header>
@@ -70,10 +74,13 @@ onclick="loadReminders()">
 
 
 
+
 <div class="tabs">
 
 
+
 <button
+type="button"
 class="tab active"
 onclick="setTab('all',this)">
 
@@ -85,6 +92,7 @@ onclick="setTab('all',this)">
 
 
 <button
+type="button"
 class="tab"
 onclick="setTab('today',this)">
 
@@ -96,6 +104,7 @@ onclick="setTab('today',this)">
 
 
 <button
+type="button"
 class="tab"
 onclick="setTab('future',this)">
 
@@ -104,7 +113,10 @@ onclick="setTab('future',this)">
 </button>
 
 
+
 </div>
+
+
 
 
 
@@ -120,7 +132,10 @@ onclick="setTab('future',this)">
 
 
 
+
+
 <button
+type="button"
 class="add-button"
 onclick="openAddReminder()">
 
@@ -130,8 +145,126 @@ onclick="openAddReminder()">
 
 
 
+
+
+
 </div>
 
+
+
+
+
+
+
+
+
+
+<div
+class="sheet"
+id="add-sheet">
+
+
+
+
+
+<div
+class="sheet-bg"
+onclick="closeAddReminder()">
+</div>
+
+
+
+
+
+
+
+<div class="sheet-box">
+
+
+
+
+
+<h2>
+Новое напоминание
+</h2>
+
+
+
+
+
+
+
+<input
+id="reminder-text"
+type="text"
+autocomplete="off"
+placeholder="Что нужно сделать?"
+>
+
+
+
+
+
+
+
+<input
+id="reminder-date"
+type="date"
+>
+
+
+
+
+
+
+
+<input
+id="reminder-time"
+type="time"
+>
+
+
+
+
+
+
+
+<button
+type="button"
+class="save-button"
+onclick="saveReminder()">
+
+Создать
+
+</button>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<script
+type="module"
+src="./js/add.js">
+</script>
 
 
 
@@ -139,6 +272,77 @@ onclick="openAddReminder()">
 type="module"
 src="./js/app.js">
 </script>
+
+
+
+
+
+
+
+<script>
+
+
+// дата и время по умолчанию
+
+document.addEventListener(
+"DOMContentLoaded",
+()=>{
+
+
+    const date =
+    document.getElementById(
+        "reminder-date"
+    );
+
+
+    const time =
+    document.getElementById(
+        "reminder-time"
+    );
+
+
+
+    const now =
+    new Date();
+
+
+
+    if(date){
+
+
+        date.value =
+        now.toISOString()
+        .split("T")[0];
+
+
+    }
+
+
+
+
+    if(time){
+
+
+        now.setHours(
+            now.getHours()+1
+        );
+
+
+        time.value =
+        now.toTimeString()
+        .slice(0,5);
+
+
+    }
+
+
+
+});
+
+
+
+</script>
+
 
 
 

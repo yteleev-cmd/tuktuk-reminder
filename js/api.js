@@ -4,8 +4,16 @@ import {
 from "./telegram.js";
 
 
-const WEBHOOK_URL =
+
+const LOAD_WEBHOOK =
 "https://hook.eu1.make.com/wfwptrf4nlkieqbdxoeci4mcce8t0ht3";
+
+
+
+const CREATE_WEBHOOK =
+"https://hook.eu1.make.com/r7xkkfr1ug4a33v54zqi8ebf0hl71zyx";
+
+
 
 
 
@@ -15,7 +23,7 @@ export async function fetchReminders(){
     const response =
     await fetch(
 
-        WEBHOOK_URL,
+        LOAD_WEBHOOK,
 
         {
 
@@ -25,9 +33,11 @@ export async function fetchReminders(){
                 "Content-Type":"application/json"
             },
 
+
             body:JSON.stringify({
 
-                user_id:getUserId()
+                user_id:
+                getUserId()
 
             })
 
@@ -37,24 +47,10 @@ export async function fetchReminders(){
 
 
 
-    const text =
-    await response.text();
-
-
-
-    console.log(
-        "Сырой ответ Make:",
-        text
-    );
-
-
-
     let data =
-    JSON.parse(text);
+    await response.json();
 
 
-
-    // если Make завернул в Body
 
     if(data.Body){
 
@@ -63,7 +59,9 @@ export async function fetchReminders(){
 
         ?
 
-        JSON.parse(data.Body)
+        JSON.parse(
+            data.Body
+        )
 
         :
 
@@ -73,122 +71,114 @@ export async function fetchReminders(){
 
 
 
-    if(data.body){
-
-        data =
-        typeof data.body === "string"
-
-        ?
-
-        JSON.parse(data.body)
-
-        :
-
-        data.body;
-
-    }
-
-
-
-    console.log(
-        "Ответ Make:",
-        data
-    );
-
-
-
     if(
-        !data ||
-        data.success !== true
+        !data.success
     ){
 
         throw new Error(
-            "Некорректный ответ Make"
+            "Ошибка загрузки напоминаний"
         );
 
     }
 
 
 
-    let result =
-    data.reminders || [];
+    return data.reminders || [];
+
+
+}
 
 
 
-    if(
-        typeof result === "string"
-    ){
-
-        result =
-        JSON.parse(result);
-
-    }
 
 
 
-    if(!Array.isArray(result)){
-
-        result =
-        [result];
-
-    }
 
 
 
-    return result.map(item=>{
+export async function createReminder(reminder){
 
 
-        if(
-            typeof item === "string"
-        ){
+    const payload = {
 
-            item =
-            JSON.parse(item);
+
+        user_id:
+        getUserId(),
+
+
+        text:
+        reminder.text,
+
+
+        date:
+        reminder.date,
+
+
+        time:
+        reminder.time,
+
+
+        repeat:
+        "",
+
+
+        status:
+        "Активно"
+
+
+    };
+
+
+
+    console.log(
+        "Отправляем в Make:",
+        payload
+    );
+
+
+
+    const response =
+    await fetch(
+
+        CREATE_WEBHOOK,
+
+        {
+
+            method:"POST",
+
+            headers:{
+
+                "Content-Type":
+                "application/json"
+
+            },
+
+
+            body:
+
+            JSON.stringify(
+                payload
+            )
 
         }
 
+    );
 
 
-        return {
 
-            id:String(
-                item.id ?? ""
-            ),
+    let result =
+    await response.json();
 
 
-            text:String(
-                item.text ??
-                "Без текста"
-            ),
+
+    console.log(
+        "Ответ Make:",
+        result
+    );
 
 
-            date:String(
-                item.date ??
-                ""
-            ),
 
-
-            time:String(
-                item.time ??
-                ""
-            ),
-
-
-            repeat:String(
-                item.repeat ??
-                ""
-            ),
-
-
-            status:String(
-                item.status ??
-                ""
-            )
-
-        };
-
-
-    });
+    return result;
 
 
 }
