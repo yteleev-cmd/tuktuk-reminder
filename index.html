@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 
 <head>
@@ -8,6 +9,7 @@
 <meta
 name="viewport"
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+
 >
 
 <title>Тук-Тук</title>
@@ -37,29 +39,30 @@ body {
     margin: 0;
     min-height: 100vh;
 
-    font-family:
-    Arial,
-    sans-serif;
+    font-family: Arial, sans-serif;
 
     background:
-    var(--tg-theme-bg-color, var(--bg));
+    var(
+        --tg-theme-bg-color,
+        var(--bg)
+    );
 
     color:
-    var(--tg-theme-text-color, var(--text));
+    var(
+        --tg-theme-text-color,
+        var(--text)
+    );
 }
 
 .app {
 
     width: 100%;
 
-    max-width:
-    650px;
+    max-width: 650px;
 
-    margin:
-    auto;
+    margin: auto;
 
-    padding:
-    18px 14px 100px;
+    padding: 18px 14px 100px;
 
 }
 
@@ -67,130 +70,103 @@ body {
 
 .header {
 
-    display:
-    flex;
+    display: flex;
 
-    align-items:
-    center;
+    align-items: center;
 
-    justify-content:
-    space-between;
+    justify-content: space-between;
 
-    margin-bottom:
-    22px;
+    margin-bottom: 22px;
 
 }
 
 .logo {
 
-    display:
-    flex;
+    display: flex;
 
-    align-items:
-    center;
+    align-items: center;
 
-    gap:
-    12px;
+    gap: 12px;
 
 }
 
 .logo-icon {
 
-    width:
-    52px;
+    width: 52px;
 
-    height:
-    52px;
+    height: 52px;
 
-    display:
-    flex;
+    display: flex;
 
-    align-items:
-    center;
+    align-items: center;
 
-    justify-content:
-    center;
+    justify-content: center;
 
-    font-size:
-    28px;
+    font-size: 28px;
 
-    border-radius:
-    18px;
+    border-radius: 18px;
 
     background:
     linear-gradient(
-    135deg,
-    #6677ed,
-    #8b63e8
+        135deg,
+        #6677ed,
+        #8b63e8
     );
 
     box-shadow:
     0 8px 22px
     rgba(
-    91,
-    110,
-    225,
-    .28
+        91,
+        110,
+        225,
+        .28
     );
 
 }
 
 .logo-title {
 
-    font-size:
-    23px;
+    font-size: 23px;
 
-    font-weight:
-    800;
+    font-weight: 800;
 
 }
 
 .logo-subtitle {
 
-    margin-top:
-    3px;
+    margin-top: 3px;
 
-    font-size:
-    13px;
+    font-size: 13px;
 
-    color:
-    var(--muted);
+    color: var(--muted);
 
 }
 
 .refresh {
 
-    width:
-    44px;
+    width: 44px;
 
-    height:
-    44px;
+    height: 44px;
 
-    border:
-    0;
+    border: 0;
 
-    border-radius:
-    15px;
+    border-radius: 15px;
 
-    font-size:
-    20px;
+    font-size: 20px;
 
-    cursor:
-    pointer;
+    cursor: pointer;
 
-    background:
-    var(--card);
+    background: var(--card);
 
-    color:
-    var(--text);
+    color: var(--text);
 
     box-shadow:
     0 4px 16px
     rgba(
-    20,
-    30,
-    60,
-    .08
+        20,
+        30,
+        60,
+        .08
     );
 
 }
@@ -199,52 +175,39 @@ body {
 
 .tabs {
 
-    display:
-    flex;
+    display: flex;
 
-    gap:
-    8px;
+    gap: 8px;
 
-    margin-bottom:
-    22px;
+    margin-bottom: 22px;
 
 }
 
 .tab {
 
-    flex:
-    1;
+    flex: 1;
 
-    padding:
-    11px 8px;
+    padding: 11px 8px;
 
-    border:
-    0;
+    border: 0;
 
-    border-radius:
-    14px;
+    border-radius: 14px;
 
-    background:
-    var(--card);
+    background: var(--card);
 
-    color:
-    var(--muted);
+    color: var(--muted);
 
-    font-size:
-    14px;
+    font-size: 14px;
 
-    font-weight:
-    700;
+    font-weight: 700;
 
 }
 
 .tab.active {
 
-    background:
-    var(--accent);
+    background: var(--accent);
 
-    color:
-    white;
+    color: white;
 
 }
 
@@ -252,52 +215,39 @@ body {
 
 .section {
 
-    margin-top:
-    26px;
+    margin-top: 26px;
 
 }
 
 .section-title {
 
-    display:
-    flex;
+    display: flex;
 
-    align-items:
-    center;
+    align-items: center;
 
-    gap:
-    8px;
+    gap: 8px;
 
-    margin:
-    0 4px 11px;
+    margin: 0 4px 11px;
 
-    font-size:
-    15px;
+    font-size: 15px;
 
-    font-weight:
-    800;
+    font-weight: 800;
 
 }
 
 .section-count {
 
-    margin-left:
-    auto;
+    margin-left: auto;
 
-    padding:
-    3px 9px;
+    padding: 3px 9px;
 
-    border-radius:
-    20px;
+    border-radius: 20px;
 
-    background:
-    var(--accent-soft);
+    background: var(--accent-soft);
 
-    color:
-    var(--accent);
+    color: var(--accent);
 
-    font-size:
-    12px;
+    font-size: 12px;
 
 }
 
@@ -305,29 +255,25 @@ body {
 
 .reminder {
 
-    margin-bottom:
-    10px;
+    margin-bottom: 10px;
 
-    padding:
-    15px;
+    padding: 15px;
 
     border:
     1px solid
     var(--border);
 
-    border-radius:
-    19px;
+    border-radius: 19px;
 
-    background:
-    var(--card);
+    background: var(--card);
 
     box-shadow:
     0 5px 18px
     rgba(
-    20,
-    30,
-    60,
-    .05
+        20,
+        30,
+        60,
+        .05
     );
 
 }
@@ -342,45 +288,34 @@ body {
 
 .reminder-top {
 
-    display:
-    flex;
+    display: flex;
 
-    align-items:
-    flex-start;
+    align-items: flex-start;
 
-    gap:
-    12px;
+    gap: 12px;
 
 }
 
 .reminder-icon {
 
-    width:
-    43px;
+    width: 43px;
 
-    height:
-    43px;
+    height: 43px;
 
-    flex:
-    0 0 auto;
+    flex: 0 0 auto;
 
-    display:
-    flex;
+    display: flex;
 
-    align-items:
-    center;
+    align-items: center;
 
-    justify-content:
-    center;
+    justify-content: center;
 
-    border-radius:
-    14px;
+    border-radius: 14px;
 
     background:
     var(--accent-soft);
 
-    font-size:
-    21px;
+    font-size: 21px;
 
 }
 
@@ -394,69 +329,53 @@ body {
 
 .reminder-content {
 
-    flex:
-    1;
+    flex: 1;
 
-    min-width:
-    0;
+    min-width: 0;
 
 }
 
 .reminder-text {
 
-    font-size:
-    16px;
+    font-size: 16px;
 
-    font-weight:
-    750;
+    font-weight: 750;
 
-    line-height:
-    1.35;
+    line-height: 1.35;
 
-    word-break:
-    break-word;
+    word-break: break-word;
 
 }
 
 .reminder-date {
 
-    margin-top:
-    6px;
+    margin-top: 6px;
 
-    color:
-    var(--muted);
+    color: var(--muted);
 
-    font-size:
-    13px;
+    font-size: 13px;
 
 }
 
 .reminder-actions {
 
-    display:
-    flex;
+    display: flex;
 
-    gap:
-    8px;
+    gap: 8px;
 
-    margin-top:
-    14px;
+    margin-top: 14px;
 
 }
 
 .done {
 
-    flex:
-    1;
+    flex: 1;
 
-    border:
-    0;
+    border: 0;
 
-    padding:
-    10px;
+    padding: 10px;
 
-    border-radius:
-    12px;
+    border-radius: 12px;
 
     background:
     var(--accent-soft);
@@ -464,30 +383,23 @@ body {
     color:
     var(--accent);
 
-    font-size:
-    13px;
+    font-size: 13px;
 
-    font-weight:
-    750;
+    font-weight: 750;
 
 }
 
 .more {
 
-    width:
-    42px;
+    width: 42px;
 
-    border:
-    0;
+    border: 0;
 
-    border-radius:
-    12px;
+    border-radius: 12px;
 
-    background:
-    #f1f3f7;
+    background: #f1f3f7;
 
-    font-size:
-    18px;
+    font-size: 18px;
 
 }
 
@@ -495,60 +407,47 @@ body {
 
 .state {
 
-    padding:
-    55px 20px;
+    padding: 55px 20px;
 
-    text-align:
-    center;
+    text-align: center;
 
-    color:
-    var(--muted);
+    color: var(--muted);
 
 }
 
 .state-icon {
 
-    font-size:
-    50px;
+    font-size: 50px;
 
-    margin-bottom:
-    14px;
+    margin-bottom: 14px;
 
 }
 
 .state-title {
 
-    color:
-    var(--text);
+    color: var(--text);
 
-    font-size:
-    18px;
+    font-size: 18px;
 
-    font-weight:
-    800;
+    font-weight: 800;
 
 }
 
 .state-text {
 
-    margin-top:
-    7px;
+    margin-top: 7px;
 
-    font-size:
-    14px;
+    font-size: 14px;
 
 }
 
 .loader {
 
-    width:
-    35px;
+    width: 35px;
 
-    height:
-    35px;
+    height: 35px;
 
-    margin:
-    35px auto;
+    margin: 35px auto;
 
     border:
     4px solid
@@ -557,8 +456,7 @@ body {
     border-top-color:
     var(--accent);
 
-    border-radius:
-    50%;
+    border-radius: 50%;
 
     animation:
     spin .8s linear infinite;
@@ -570,9 +468,7 @@ body {
     to {
 
         transform:
-        rotate(
-        360deg
-        );
+        rotate(360deg);
 
     }
 
@@ -611,9 +507,10 @@ body {
 <button
 class="refresh"
 onclick="loadReminders()"
+
 >
-↻
-</button>
+
+↻ </button>
 
 </header>
 
@@ -621,24 +518,36 @@ onclick="loadReminders()"
 
 <button
 class="tab active"
-onclick="setTab('all', this)"
+onclick="setTab(
+'all',
+this
+)"
+
 >
-Все
-</button>
+
+Все </button>
 
 <button
 class="tab"
-onclick="setTab('today', this)"
+onclick="setTab(
+'today',
+this
+)"
+
 >
-Сегодня
-</button>
+
+Сегодня </button>
 
 <button
 class="tab"
-onclick="setTab('future', this)"
+onclick="setTab(
+'future',
+this
+)"
+
 >
-Позже
-</button>
+
+Позже </button>
 
 </div>
 
@@ -706,7 +615,7 @@ function getUserId() {
 
     }
 
-    /* ТЕСТ В БРАУЗЕРЕ */
+    /* ТЕСТ В ОБЫЧНОМ БРАУЗЕРЕ */
 
     return
     "264483752";
@@ -718,12 +627,14 @@ function getUserId() {
 async function loadReminders() {
 
     const content =
+
     document
     .getElementById(
-    "content"
+        "content"
     );
 
     content.innerHTML =
+
     '<div class="loader"></div>';
 
     try {
@@ -732,40 +643,89 @@ async function loadReminders() {
 
         await fetch(
 
-        WEBHOOK_URL,
+            WEBHOOK_URL,
 
-        {
-
-            method:
-            "POST",
-
-            headers:
             {
 
-                "Content-Type":
-                "application/json"
+                method:
+                "POST",
 
-            },
+                headers:
+                {
 
-            body:
+                    "Content-Type":
+                    "application/json"
 
-            JSON.stringify({
+                },
 
-                user_id:
-                getUserId()
+                body:
 
-            })
+                JSON.stringify({
 
-        }
+                    user_id:
+                    getUserId()
+
+                })
+
+            }
 
         );
 
-        const data =
+        const responseText =
 
-        await response
-        .json();
+        await response.text();
+
+        let data;
+
+        try {
+
+            data =
+
+            JSON.parse(
+                responseText
+            );
+
+        }
+
+        catch {
+
+            throw new Error(
+
+                "Make вернул не JSON: "
+
+                +
+
+                responseText
+
+            );
+
+        }
+
+        /* ЕСЛИ ВЕСЬ ОТВЕТ ПРИШЁЛ СТРОКОЙ */
 
         if (
+
+            typeof data
+
+            ===
+
+            "string"
+
+        ) {
+
+            data =
+
+            JSON.parse(
+                data
+            );
+
+        }
+
+        if (
+
+            !data
+
+            ||
 
             !data.success
 
@@ -773,17 +733,71 @@ async function loadReminders() {
 
             throw new Error(
 
-            "Ошибка ответа"
+                "Некорректный ответ Make"
 
             );
 
         }
 
-        reminders =
+        let received =
 
         data.reminders
 
-        || [];
+        ||
+
+        [];
+
+        /* ЕСЛИ reminders ПРИШЁЛ СТРОКОЙ */
+
+        if (
+
+            typeof received
+
+            ===
+
+            "string"
+
+        ) {
+
+            received =
+
+            JSON.parse(
+                received
+            );
+
+        }
+
+        /* ЕСЛИ КАЖДОЕ НАПОМИНАНИЕ ПРИШЛО СТРОКОЙ */
+
+        reminders =
+
+        received.map(
+
+            item => {
+
+                if (
+
+                    typeof item
+
+                    ===
+
+                    "string"
+
+                ) {
+
+                    return
+
+                    JSON.parse(
+                        item
+                    );
+
+                }
+
+                return item;
+
+            }
+
+        );
 
         sortReminders();
 
@@ -793,9 +807,17 @@ async function loadReminders() {
 
     catch (
 
-    error
+        error
 
     ) {
+
+        console.error(
+
+            "Ошибка Mini App:",
+
+            error
+
+        );
 
         content.innerHTML =
 
@@ -815,20 +837,17 @@ async function loadReminders() {
 
         <div class="state-text">
 
-        Проверьте подключение
-        и попробуйте снова
+        ${escapeHtml(
+
+            error.message
+
+        )}
 
         </div>
 
         </div>
 
         `;
-
-        console.error(
-
-        error
-
-        );
 
     }
 
@@ -840,33 +859,23 @@ function sortReminders() {
 
     reminders.sort(
 
-    function(a, b) {
+        function(
 
-        return
+            a,
 
-        new Date(
+            b
 
-        a.date
+        ) {
 
-        + "T"
+            return
 
-        + a.time
+            getDate(a)
 
-        )
+            -
 
-        -
+            getDate(b);
 
-        new Date(
-
-        b.date
-
-        + "T"
-
-        + b.time
-
-        );
-
-    }
+        }
 
     );
 
@@ -876,34 +885,35 @@ function sortReminders() {
 
 function setTab(
 
-tab,
+    tab,
 
-button
+    button
 
 ) {
 
     currentTab =
+
     tab;
 
     document
 
     .querySelectorAll(
 
-    ".tab"
+        ".tab"
 
     )
 
     .forEach(
 
-    item =>
+        item =>
 
-    item.classList
+        item.classList
 
-    .remove(
+        .remove(
 
-    "active"
+            "active"
 
-    )
+        )
 
     );
 
@@ -913,7 +923,7 @@ button
 
     .add(
 
-    "active"
+        "active"
 
     );
 
@@ -925,17 +935,37 @@ button
 
 function getDate(
 
-reminder
+    reminder
 
 ) {
 
     return new Date(
 
-    reminder.date
+        String(
 
-    + "T"
+            reminder.date
 
-    + reminder.time
+            ||
+
+            ""
+
+        )
+
+        +
+
+        "T"
+
+        +
+
+        String(
+
+            reminder.time
+
+            ||
+
+            "00:00"
+
+        )
 
     );
 
@@ -943,11 +973,12 @@ reminder
 
 function isToday(
 
-date
+    date
 
 ) {
 
     const now =
+
     new Date();
 
     return
@@ -986,7 +1017,7 @@ function render() {
 
     .getElementById(
 
-    "content"
+        "content"
 
     );
 
@@ -994,75 +1025,77 @@ function render() {
 
     new Date();
 
-    let filtered =
+    const filtered =
 
     reminders.filter(
 
-    reminder => {
+        reminder => {
 
-        const date =
+            const date =
 
-        getDate(
+            getDate(
 
-        reminder
-
-        );
-
-        if (
-
-        currentTab
-
-        ===
-
-        "today"
-
-        ) {
-
-            return
-
-            isToday(
-
-            date
+                reminder
 
             );
 
+            if (
+
+                currentTab
+
+                ===
+
+                "today"
+
+            ) {
+
+                return
+
+                isToday(
+
+                    date
+
+                );
+
+            }
+
+            if (
+
+                currentTab
+
+                ===
+
+                "future"
+
+            ) {
+
+                return
+
+                date >= now
+
+                &&
+
+                !isToday(
+
+                    date
+
+                );
+
+            }
+
+            return true;
+
         }
-
-        if (
-
-        currentTab
-
-        ===
-
-        "future"
-
-        ) {
-
-            return
-
-            date >= now
-
-            &&
-
-            !isToday(
-
-            date
-
-            );
-
-        }
-
-        return true;
-
-    }
 
     );
 
     if (
 
-    filtered.length
+        filtered.length
 
-    === 0
+        ===
+
+        0
 
     ) {
 
@@ -1100,13 +1133,17 @@ function render() {
 
     filtered.filter(
 
-    reminder =>
+        reminder =>
 
-    getDate(
+        getDate(
 
-    reminder
+            reminder
 
-    ) < now
+        )
+
+        <
+
+        now
 
     );
 
@@ -1114,25 +1151,29 @@ function render() {
 
     filtered.filter(
 
-    reminder =>
+        reminder =>
 
-    isToday(
+        isToday(
 
-    getDate(
+            getDate(
 
-    reminder
+                reminder
 
-    )
+            )
 
-    )
+        )
 
-    &&
+        &&
 
-    getDate(
+        getDate(
 
-    reminder
+            reminder
 
-    ) >= now
+        )
+
+        >=
+
+        now
 
     );
 
@@ -1140,25 +1181,29 @@ function render() {
 
     filtered.filter(
 
-    reminder =>
+        reminder =>
 
-    !isToday(
+        !isToday(
 
-    getDate(
+            getDate(
 
-    reminder
+                reminder
 
-    )
+            )
 
-    )
+        )
 
-    &&
+        &&
 
-    getDate(
+        getDate(
 
-    reminder
+            reminder
 
-    ) >= now
+        )
+
+        >=
+
+        now
 
     );
 
@@ -1168,7 +1213,7 @@ function render() {
 
     if (
 
-    overdue.length
+        overdue.length
 
     ) {
 
@@ -1176,13 +1221,13 @@ function render() {
 
         section(
 
-        "🔴",
+            "🔴",
 
-        "Просрочено",
+            "Просрочено",
 
-        overdue,
+            overdue,
 
-        true
+            true
 
         );
 
@@ -1190,7 +1235,7 @@ function render() {
 
     if (
 
-    today.length
+        today.length
 
     ) {
 
@@ -1198,11 +1243,11 @@ function render() {
 
         section(
 
-        "🟡",
+            "🟡",
 
-        "Сегодня",
+            "Сегодня",
 
-        today
+            today
 
         );
 
@@ -1210,7 +1255,7 @@ function render() {
 
     if (
 
-    future.length
+        future.length
 
     ) {
 
@@ -1218,17 +1263,18 @@ function render() {
 
         section(
 
-        "🟢",
+            "🟢",
 
-        "Позже",
+            "Позже",
 
-        future
+            future
 
         );
 
     }
 
     content.innerHTML =
+
     html;
 
 }
@@ -1237,13 +1283,13 @@ function render() {
 
 function section(
 
-icon,
+    icon,
 
-title,
+    title,
 
-items,
+    items,
 
-overdue = false
+    overdue = false
 
 ) {
 
@@ -1269,27 +1315,27 @@ overdue = false
 
     ${
 
-    items
+        items
 
-    .map(
+        .map(
 
-    item =>
+            item =>
 
-    card(
+            card(
 
-    item,
+                item,
 
-    overdue
+                overdue
 
-    )
+            )
 
-    )
+        )
 
-    .join(
+        .join(
 
-    ""
+            ""
 
-    )
+        )
 
     }
 
@@ -1303,9 +1349,9 @@ overdue = false
 
 function card(
 
-item,
+    item,
 
-overdue
+    overdue
 
 ) {
 
@@ -1313,29 +1359,69 @@ overdue
 
     getDate(
 
-    item
+        item
 
     );
 
     const formatted =
 
+    isNaN(
+
+        date.getTime()
+
+    )
+
+    ?
+
+    "Дата не указана"
+
+    :
+
     date
 
     .toLocaleDateString(
 
-    "ru-RU",
+        "ru-RU",
 
-    {
+        {
 
-        day:
-        "numeric",
+            day:
+            "numeric",
 
-        month:
-        "long"
+            month:
+            "long"
 
-    }
+        }
 
     );
+
+    const text =
+
+    item.text
+
+    ||
+
+    item.Текст
+
+    ||
+
+    item.title
+
+    ||
+
+    "Без текста";
+
+    const time =
+
+    item.time
+
+    ||
+
+    item.Время
+
+    ||
+
+    "";
 
     return
 
@@ -1347,15 +1433,15 @@ overdue
 
     ${
 
-    overdue
+        overdue
 
-    ?
+        ?
 
-    "overdue"
+        "overdue"
 
-    :
+        :
 
-    ""
+        ""
 
     }
 
@@ -1375,7 +1461,7 @@ overdue
 
     ${escapeHtml(
 
-    item.text
+        text
 
     )}
 
@@ -1391,7 +1477,11 @@ overdue
 
     ⏰
 
-    ${item.time}
+    ${escapeHtml(
+
+        time
+
+    )}
 
     </div>
 
@@ -1407,7 +1497,19 @@ overdue
 
     onclick="completeReminder(
 
-    '${item.id}'
+        '${
+
+            escapeAttribute(
+
+                item.id
+
+                ||
+
+                ""
+
+            )
+
+        }'
 
     )"
 
@@ -1439,25 +1541,25 @@ overdue
 
 function completeReminder(
 
-id
+    id
 
 ) {
 
     alert(
 
-    "Позже здесь будет "
+        "Позже здесь будет "
 
-    +
+        +
 
-    "отметка выполнения. "
+        "отметка выполнения. "
 
-    +
+        +
 
-    "ID: "
+        "ID: "
 
-    +
+        +
 
-    id
+        id
 
     );
 
@@ -1467,7 +1569,7 @@ id
 
 function escapeHtml(
 
-text
+    value
 
 ) {
 
@@ -1477,15 +1579,55 @@ text
 
     .createElement(
 
-    "div"
+        "div"
 
     );
 
     div.textContent =
-    text;
+
+    String(
+
+        value
+
+        ??
+
+        ""
+
+    );
 
     return
+
     div.innerHTML;
+
+}
+
+function escapeAttribute(
+
+    value
+
+) {
+
+    return escapeHtml(
+
+        value
+
+    )
+
+    .replace(
+
+        /"/g,
+
+        "&quot;"
+
+    )
+
+    .replace(
+
+        /'/g,
+
+        "&#39;"
+
+    );
 
 }
 
