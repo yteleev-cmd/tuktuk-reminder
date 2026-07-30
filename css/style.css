@@ -4,22 +4,15 @@
 
 
 * {
-
     box-sizing:border-box;
-
     -webkit-tap-highlight-color:transparent;
-
 }
-
 
 
 html,
 body {
-
     width:100%;
-
     overflow-x:hidden;
-
 }
 
 
@@ -37,9 +30,6 @@ body {
 
 }
 
-
-
-/* BODY */
 
 
 body {
@@ -321,53 +311,6 @@ body {
 
 
 
-/* STATES */
-
-
-.state {
-
-    padding:55px 20px;
-
-    text-align:center;
-
-    color:var(--muted);
-
-}
-
-
-
-.state-icon {
-
-    font-size:50px;
-
-}
-
-
-
-.state-title {
-
-    margin-top:10px;
-
-    color:var(--text);
-
-    font-size:18px;
-
-    font-weight:800;
-
-}
-
-
-
-.state-text {
-
-    margin-top:7px;
-
-    font-size:14px;
-
-}
-
-
-
 /* LOADER */
 
 
@@ -394,9 +337,7 @@ body {
 @keyframes spin {
 
     to {
-
         transform:rotate(360deg);
-
     }
 
 }
@@ -442,7 +383,7 @@ body {
     justify-content:center;
 
 
-    font-size:38px;
+    font-size:36px;
 
     font-weight:300;
 
@@ -453,10 +394,7 @@ body {
 
 
     box-shadow:
-
-    0 10px 25px
-
-    rgba(
+    0 10px 25px rgba(
         91,
         110,
         225,
@@ -534,28 +472,6 @@ body {
     padding:
     25px 18px 35px;
 
-
-    animation:
-    slideUp .25s ease;
-
-}
-
-
-
-@keyframes slideUp {
-
-    from {
-
-        transform:translateY(100%);
-
-    }
-
-    to {
-
-        transform:translateY(0);
-
-    }
-
 }
 
 
@@ -600,16 +516,11 @@ body {
 
     font-size:16px;
 
-
-    display:flex;
-
-    align-items:center;
-
 }
 
 
 
-/* DATE TIME FIX */
+/* DATE TIME */
 
 
 .sheet-box input[type="date"],
@@ -617,73 +528,17 @@ body {
 
     height:52px;
 
-    min-height:52px;
-
-    display:block;
+    width:100%;
 
     padding:0 14px;
 
+    font-size:16px;
 
-    line-height:52px;
+    line-height:normal;
 
+    -webkit-appearance:auto;
 
-    -webkit-appearance:none;
-
-    appearance:none;
-
-}
-
-
-
-/* ANDROID / TELEGRAM FIX */
-
-
-.sheet-box input::-webkit-date-and-time-value {
-
-    min-height:52px;
-
-    display:flex;
-
-    align-items:center;
-
-    line-height:52px;
-
-    padding-top:0;
-
-}
-
-
-
-.sheet-box input::-webkit-datetime-edit {
-
-    display:flex;
-
-    align-items:center;
-
-    height:52px;
-
-}
-
-
-
-.sheet-box input::-webkit-datetime-edit-fields-wrapper {
-
-    display:flex;
-
-    align-items:center;
-
-}
-
-
-
-.sheet-box input::-webkit-datetime-edit-text,
-.sheet-box input::-webkit-datetime-edit-month-field,
-.sheet-box input::-webkit-datetime-edit-day-field,
-.sheet-box input::-webkit-datetime-edit-year-field,
-.sheet-box input::-webkit-datetime-edit-hour-field,
-.sheet-box input::-webkit-datetime-edit-minute-field {
-
-    line-height:52px;
+    appearance:auto;
 
 }
 
