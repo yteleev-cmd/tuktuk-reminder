@@ -10,6 +10,12 @@ import {
 from "./utils.js";
 
 
+import {
+    completeReminder
+}
+from "./api.js";
+
+
 
 let currentTab = "all";
 
@@ -285,7 +291,7 @@ ${escapeHtml(item.text)}
 
 ·
 
-⏰ ${escapeHtml(item.time)}
+⏰ ${escapeHtml(item.time || "")}
 
 </div>
 
@@ -339,10 +345,12 @@ onclick="openReminderMenu('${item.id}')">
 
 
 
-// обработчик кнопки выполнено
+
+// Выполнить напоминание
 
 window.completeReminder =
-function(id){
+async function(id){
+
 
     console.log(
         "Выполнить:",
@@ -350,23 +358,62 @@ function(id){
     );
 
 
+
+    try{
+
+
+        await completeReminder(id);
+
+
+
+        if(window.loadReminders){
+
+            window.loadReminders();
+
+        }
+
+
+    }
+
+
+    catch(error){
+
+
+        console.error(
+            error
+        );
+
+
+        alert(
+            "Ошибка изменения статуса"
+        );
+
+
+    }
+
+
 };
 
 
 
 
 
-// обработчик троеточия
+
+
+// Меню троеточия
 
 window.openReminderMenu =
 function(id){
+
 
     console.log(
         "Меню:",
         id
     );
 
+
 };
+
 
 
 
