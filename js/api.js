@@ -62,7 +62,7 @@ export async function fetchReminders(){
     if(!response.ok){
 
         throw new Error(
-            "Ошибка сервера: "
+            "Ошибка загрузки: "
             +
             response.status
         );
@@ -74,7 +74,6 @@ export async function fetchReminders(){
 
     let data =
     await response.json();
-
 
 
 
@@ -106,7 +105,6 @@ export async function fetchReminders(){
 
 
     }
-
 
 
 
@@ -156,23 +154,17 @@ export async function createReminder(reminder){
 
 
         text:
-        String(
-            reminder.text
-        ),
+        reminder.text,
 
 
 
         date:
-        String(
-            reminder.date
-        ),
+        reminder.date,
 
 
 
         time:
-        String(
-            reminder.time
-        ),
+        reminder.time,
 
 
 
@@ -242,7 +234,7 @@ async function sendAction(payload){
 
 
     console.log(
-        "Действие:",
+        "Отправляем действие:",
         payload
     );
 
@@ -306,24 +298,46 @@ async function sendAction(payload){
 
 
 
-
-    const result =
-    await response.json();
-
-
+    const text =
+    await response.text();
 
 
 
     console.log(
-        "Ответ действия:",
-        result
+        "Ответ Make:",
+        text
     );
 
 
 
+    if(!text){
+
+        return {
+            success:true
+        };
+
+    }
 
 
-    return result;
+
+    try{
+
+
+        return JSON.parse(text);
+
+
+    }
+
+    catch{
+
+
+        return {
+            success:true,
+            raw:text
+        };
+
+
+    }
 
 
 
