@@ -8,7 +8,6 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-
 <title>Тук-Тук</title>
 
 
@@ -21,9 +20,7 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
 </head>
 
 
-
 <body>
-
 
 
 <div class="app">
@@ -31,7 +28,6 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
 
 
 <header class="header">
-
 
 
 <div class="logo">
@@ -54,7 +50,6 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
 <div class="logo-subtitle">
 Мои напоминания
 </div>
-
 
 
 </div>
@@ -131,12 +126,12 @@ onclick="setTab('future',this)">
 
 
 
-
 <main id="content">
 
 <div class="loader"></div>
 
 </main>
+
 
 
 
@@ -178,8 +173,8 @@ id="add-sheet">
 <div
 class="sheet-bg"
 onclick="closeAddReminder()">
-
 </div>
+
 
 
 
@@ -191,8 +186,6 @@ onclick="closeAddReminder()">
 
 
 
-
-
 <h2>
 Новое напоминание
 </h2>
@@ -200,50 +193,30 @@ onclick="closeAddReminder()">
 
 
 
-
-
-
-
 <input
-
 id="reminder-text"
-
 type="text"
-
 autocomplete="off"
-
 placeholder="Что нужно сделать?"
-
 >
 
 
 
 
 
-
-
 <input
-
 id="reminder-date"
-
 type="date"
-
 >
-
-
 
 
 
 
 
 <input
-
 id="reminder-time"
-
 type="time"
-
 >
-
 
 
 
@@ -251,11 +224,8 @@ type="time"
 
 
 <button
-
 type="button"
-
 class="save-button"
-
 onclick="saveReminder()">
 
 Создать
@@ -267,6 +237,12 @@ onclick="saveReminder()">
 
 
 
+</div>
+
+
+
+
+
 
 </div>
 
@@ -276,57 +252,18 @@ onclick="saveReminder()">
 
 
 
-</div>
 
-
-
-
-
-
-
-
-
-<!-- Telegram -->
-
-<script>
-
-if(window.Telegram?.WebApp){
-
-    Telegram.WebApp.ready();
-
-    Telegram.WebApp.expand();
-
-}
-
-
-</script>
-
-
-
-
-
-
-
-
-
-<!-- Modules -->
 
 <script
-
 type="module"
-
 src="./js/app.js">
-
 </script>
 
 
 
 <script
-
 type="module"
-
 src="./js/add.js">
-
 </script>
 
 
@@ -334,10 +271,6 @@ src="./js/add.js">
 
 
 
-
-
-
-<!-- Default date/time -->
 
 <script>
 
@@ -347,77 +280,56 @@ document.addEventListener(
 ()=>{
 
 
-    const date =
-    document.getElementById(
-        "reminder-date"
-    );
+const date =
+document.getElementById(
+"reminder-date"
+);
 
 
-    const time =
-    document.getElementById(
-        "reminder-time"
-    );
-
-
-
-    const now =
-    new Date();
+const time =
+document.getElementById(
+"reminder-time"
+);
 
 
 
-    // +1 час по умолчанию
-
-    now.setHours(
-        now.getHours()+1
-    );
+const now =
+new Date();
 
 
 
-
-    if(date){
-
-
-        const year =
-        now.getFullYear();
+if(date){
 
 
-        const month =
-        String(
-            now.getMonth()+1
-        )
-        .padStart(2,"0");
+date.value =
+now.toISOString()
+.split("T")[0];
 
 
-        const day =
-        String(
-            now.getDate()
-        )
-        .padStart(2,"0");
-
-
-
-        date.value =
-        `${year}-${month}-${day}`;
-
-
-    }
+}
 
 
 
 
-    if(time){
+if(time){
 
 
-        time.value =
-        now.toTimeString()
-        .slice(0,5);
+now.setHours(
+now.getHours()+1
+);
 
 
-    }
+time.value =
+now.toTimeString()
+.slice(0,5);
+
+
+}
 
 
 
 });
+
 
 
 </script>
