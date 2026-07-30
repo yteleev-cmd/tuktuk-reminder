@@ -18,6 +18,8 @@ const ACTION_WEBHOOK =
 
 
 
+
+
 export async function fetchReminders(){
 
 
@@ -30,15 +32,24 @@ export async function fetchReminders(){
 
             method:"POST",
 
+            mode:"cors",
+
             headers:{
-                "Content-Type":"application/json"
+
+                "Content-Type":
+                "application/json"
+
             },
 
 
-            body:JSON.stringify({
+            body:
+
+            JSON.stringify({
 
                 user_id:
-                getUserId()
+                String(
+                    getUserId()
+                )
 
             })
 
@@ -48,8 +59,22 @@ export async function fetchReminders(){
 
 
 
+    if(!response.ok){
+
+        throw new Error(
+            "Ошибка сервера: "
+            +
+            response.status
+        );
+
+    }
+
+
+
+
     let data =
     await response.json();
+
 
 
 
@@ -60,35 +85,48 @@ export async function fetchReminders(){
 
 
 
+
+
     if(data.Body){
 
+
         data =
+
         typeof data.Body === "string"
 
         ?
 
-        JSON.parse(data.Body)
+        JSON.parse(
+            data.Body
+        )
 
         :
 
         data.Body;
 
+
     }
+
+
+
 
 
 
     if(!data.success){
 
+
         throw new Error(
             "Ошибка загрузки напоминаний"
         );
+
 
     }
 
 
 
-    return data.reminders || [];
 
+
+    return data.reminders || [];
 
 }
 
@@ -103,31 +141,47 @@ export async function fetchReminders(){
 export async function createReminder(reminder){
 
 
+
     return sendAction({
+
 
         action:"create",
 
 
         user_id:
-        getUserId(),
+        String(
+            getUserId()
+        ),
+
 
 
         text:
-        reminder.text,
+        String(
+            reminder.text
+        ),
+
 
 
         date:
-        reminder.date,
+        String(
+            reminder.date
+        ),
+
 
 
         time:
-        reminder.time,
+        String(
+            reminder.time
+        ),
+
 
 
         repeat:"",
 
 
+
         status:"Активно"
+
 
     });
 
@@ -145,19 +199,30 @@ export async function createReminder(reminder){
 export async function completeReminder(id){
 
 
+
     return sendAction({
+
 
         action:"complete",
 
 
+
         user_id:
-        getUserId(),
+        String(
+            getUserId()
+        ),
 
 
-        id:id,
+
+        id:
+        String(
+            id
+        ),
+
 
 
         status:"Выполнено"
+
 
     });
 
@@ -175,10 +240,13 @@ export async function completeReminder(id){
 async function sendAction(payload){
 
 
+
     console.log(
         "Действие:",
         payload
     );
+
+
 
 
 
@@ -191,12 +259,18 @@ async function sendAction(payload){
 
             method:"POST",
 
+            mode:"cors",
+
+
             headers:{
+
 
                 "Content-Type":
                 "application/json"
 
+
             },
+
 
 
             body:
@@ -205,13 +279,52 @@ async function sendAction(payload){
                 payload
             )
 
+
         }
 
     );
 
 
 
-    return await response.json();
+
+
+    if(!response.ok){
+
+
+        throw new Error(
+
+            "Ошибка действия: "
+            +
+            response.status
+
+        );
+
+
+    }
+
+
+
+
+
+
+    const result =
+    await response.json();
+
+
+
+
+
+    console.log(
+        "Ответ действия:",
+        result
+    );
+
+
+
+
+
+    return result;
+
 
 
 }
