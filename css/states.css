@@ -1,0 +1,37 @@
+.state {
+
+    text-align:center;
+
+    padding:50px 20px;
+
+}
+
+
+
+.state-icon {
+
+    font-size:40px;
+
+}
+
+
+
+.state-title {
+
+    margin-top:15px;
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+
+
+.state-text {
+
+    margin-top:8px;
+
+    color:var(--muted);
+
+}

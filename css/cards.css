@@ -1,0 +1,99 @@
+.reminder {
+
+    margin-bottom:10px;
+
+    padding:15px;
+
+    border:1px solid var(--border);
+
+    border-radius:19px;
+
+    background:var(--card);
+
+}
+
+
+
+.reminder-top {
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+}
+
+
+
+.reminder-icon {
+
+    width:43px;
+
+    height:43px;
+
+    flex:none;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:14px;
+
+    background:var(--accent-soft);
+
+    font-size:21px;
+
+}
+
+
+
+.reminder-content {
+
+    flex:1;
+
+    min-width:0;
+
+}
+
+
+
+.reminder-text {
+
+    font-size:16px;
+
+    font-weight:700;
+
+    line-height:1.35;
+
+}
+
+
+
+.reminder-date {
+
+    margin-top:6px;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+}
+
+
+
+.reminder.completed {
+
+    opacity:.55;
+
+}
+
+
+
+.reminder.completed .reminder-text {
+
+    text-decoration:line-through;
+
+}
