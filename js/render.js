@@ -51,6 +51,44 @@ export function setTab(tab,button){
 
 
 
+function normalizeItem(item){
+
+
+    return {
+
+        id:
+        item.id || "",
+
+
+        text:
+        item.text ||
+        item.Text ||
+        item.title ||
+        item.name ||
+        "",
+
+
+        date:
+        item.date || "",
+
+
+        time:
+        item.time || "",
+
+
+        status:
+        item.status || "Активно"
+
+    };
+
+
+}
+
+
+
+
+
+
 function getDate(item){
 
 
@@ -114,12 +152,24 @@ export function render(){
     );
 
 
+
     const now =
     new Date();
 
 
+
+
     const reminders =
-    getReminders();
+    getReminders()
+    .map(normalizeItem);
+
+
+
+    console.log(
+        "RENDER DATA:",
+        reminders
+    );
+
 
 
 
@@ -135,22 +185,33 @@ export function render(){
 
         if(currentTab==="today"){
 
+
             return isToday(date);
 
+
         }
+
 
 
 
 
         if(currentTab==="future"){
 
+
             return (
+
                 date >= now
+
                 &&
+
                 !isToday(date)
+
             );
 
+
         }
+
+
 
 
 
@@ -158,6 +219,7 @@ export function render(){
 
 
     });
+
 
 
 
@@ -192,7 +254,9 @@ export function render(){
 
         return;
 
+
     }
+
 
 
 
@@ -207,7 +271,11 @@ export function render(){
     );
 
 
+
 }
+
+
+
 
 
 
@@ -255,7 +323,9 @@ items.map(item=>card(item)).join("")
 
 
 
+
 function card(item){
+
 
 
 const completed =
@@ -285,22 +355,39 @@ ${completed ? "✅" : "🔔"}
 
 <div class="reminder-text">
 
-${escapeHtml(item.text)}
+${
+
+escapeHtml(
+    item.text ||
+    "Без названия"
+)
+
+}
 
 </div>
+
 
 
 
 
 <div class="reminder-date">
 
-📅 ${escapeHtml(item.date)}
+📅 
+
+${escapeHtml(item.date)}
+
+&nbsp;
 
 ·
 
-⏰ ${escapeHtml(item.time || "")}
+&nbsp;
+
+⏰ 
+
+${escapeHtml(item.time)}
 
 </div>
+
 
 
 </div>
@@ -317,20 +404,42 @@ ${escapeHtml(item.text)}
 
 
 <button
-class="done"
-onclick="completeReminder('${item.id}')"
-${completed ? "disabled" : ""}>
 
-${completed ? "✓ Выполнено" : "✓ Выполнить"}
+class="done"
+
+onclick="completeReminder('${item.id}')"
+
+${completed ? "disabled" : ""}
+
+>
+
+${
+
+completed
+
+?
+
+"✓ Выполнено"
+
+:
+
+"✓ Выполнить"
+
+}
 
 </button>
 
 
 
 
+
 <button
+
 class="more"
-onclick="openReminderMenu('${item.id}')">
+
+onclick="openReminderMenu('${item.id}')"
+
+>
 
 ⋮
 
@@ -355,9 +464,10 @@ onclick="openReminderMenu('${item.id}')">
 
 
 
-// Выполнить напоминание
+
 
 window.completeReminder =
+
 async function(id){
 
 
@@ -377,9 +487,12 @@ async function(id){
 
         if(window.loadReminders){
 
+
             window.loadReminders();
 
+
         }
+
 
 
     }
@@ -388,9 +501,11 @@ async function(id){
     catch(error){
 
 
+
         console.error(
             error
         );
+
 
 
         alert(
@@ -409,9 +524,10 @@ async function(id){
 
 
 
-// Меню троеточия
+
 
 window.openReminderMenu =
+
 function(id){
 
 
@@ -422,6 +538,7 @@ function(id){
 
 
 };
+
 
 
 
