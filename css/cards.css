@@ -1,8 +1,3 @@
-/* =========================
-   REMINDER CARD
-========================= */
-
-
 .reminder {
 
     margin-bottom:10px;
@@ -21,7 +16,6 @@
 
 
 
-
 .reminder-top {
 
     display:flex;
@@ -31,7 +25,6 @@
     gap:12px;
 
 }
-
 
 
 
@@ -59,7 +52,6 @@
 
 
 
-
 .reminder-content {
 
     flex:1;
@@ -70,14 +62,13 @@
 
 
 
-
 .reminder-text {
 
     display:block;
 
     width:100%;
 
-    color:#1d2433;
+    color:#1d2433 !important;
 
     font-size:16px;
 
@@ -91,25 +82,18 @@
 
 
 
-
 .reminder-date {
 
     display:block;
 
     margin-top:6px;
 
-    color:#7b8494;
+    color:#7b8494 !important;
 
     font-size:13px;
 
-    line-height:1.3;
-
 }
 
-
-
-
-/* выполненные */
 
 
 .reminder.completed {
@@ -128,12 +112,7 @@
 
 
 
-
-
-/* =========================
-   CARD BUTTONS
-========================= */
-
+/* кнопки */
 
 .reminder-actions {
 
@@ -149,8 +128,6 @@
 
 
 
-
-
 .done {
 
     flex:1;
@@ -161,16 +138,15 @@
 
     border-radius:12px;
 
-    background:var(--accent-soft);
+    background:#e9ecff;
 
-    color:var(--accent);
+    color:#5b6ee1;
 
     font-size:14px;
 
     font-weight:700;
 
 }
-
 
 
 
@@ -182,15 +158,11 @@
 
 
 
-
-
 .more {
 
     width:42px;
 
     height:42px;
-
-    flex:none;
 
     border:0;
 
@@ -207,7 +179,5 @@
     align-items:center;
 
     justify-content:center;
-
-    padding:0;
 
 }
