@@ -18,71 +18,96 @@ from "./render.js";
 
 
 
+
 window.loadReminders =
 async function(){
 
 
-const content =
-document.getElementById(
-    "content"
-);
+    const content =
+    document.getElementById(
+        "content"
+    );
 
 
-content.innerHTML =
-'<div class="loader"></div>';
-
-
-
-try{
-
-
-    const data =
-    await fetchReminders();
+    content.innerHTML =
+    '<div class="loader"></div>';
 
 
 
-    setReminders(data);
+    try{
+
+
+        const data =
+        await fetchReminders();
 
 
 
-    render();
+        setReminders(data);
 
 
-}
+
+        render();
 
 
-catch(error){
+    }
 
 
-console.error(error);
+    catch(error){
 
 
-content.innerHTML = `
-
-<div class="state">
-
-<div class="state-icon">
-⚠️
-</div>
-
-<div class="state-title">
-Ошибка
-</div>
-
-<div class="state-text">
-${error.message}
-</div>
+        console.error(
+            error
+        );
 
 
-</div>
+        content.innerHTML = `
 
-`;
+        <div class="state">
 
 
-}
+            <div class="state-icon">
+            ⚠️
+            </div>
+
+
+            <div class="state-title">
+            Ошибка
+            </div>
+
+
+            <div class="state-text">
+
+            ${error.message}
+
+            </div>
+
+
+        </div>
+
+        `;
+
+
+    }
 
 
 };
+
+
+
+
+
+window.openAddReminder =
+function(){
+
+
+    alert(
+        "Создание напоминания"
+    );
+
+
+};
+
+
 
 
 

@@ -12,7 +12,7 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="./css/style.css">
 
 </head>
 
@@ -75,7 +75,7 @@ onclick="loadReminders()">
 
 <button
 class="tab active"
-onclick="setTab('all', this)">
+onclick="setTab('all',this)">
 
 Все
 
@@ -86,7 +86,7 @@ onclick="setTab('all', this)">
 
 <button
 class="tab"
-onclick="setTab('today', this)">
+onclick="setTab('today',this)">
 
 Сегодня
 
@@ -97,7 +97,7 @@ onclick="setTab('today', this)">
 
 <button
 class="tab"
-onclick="setTab('future', this)">
+onclick="setTab('future',this)">
 
 Позже
 
@@ -112,9 +112,7 @@ onclick="setTab('future', this)">
 
 <main id="content">
 
-
 <div class="loader"></div>
-
 
 </main>
 
@@ -122,8 +120,17 @@ onclick="setTab('future', this)">
 
 
 
-</div>
+<button
+class="add-button"
+onclick="openAddReminder()">
 
++
+
+</button>
+
+
+
+</div>
 
 
 
