@@ -122,9 +122,7 @@ body {
 
     border-radius:18px;
 
-
     background:
-
     linear-gradient(
         135deg,
         #6677ed,
@@ -494,9 +492,7 @@ body {
 @keyframes spin {
 
     to {
-
         transform:rotate(360deg);
-
     }
 
 }
@@ -544,36 +540,30 @@ body {
     margin:0;
 
 
-    font-size:34px;
-
-    font-weight:300;
-
-    line-height:58px;
-
-
-    text-align:center;
+    z-index:100;
 
 
     box-shadow:
-
     0 10px 25px
-
-    rgba(
-        91,
-        110,
-        225,
-        .35
-    );
-
-
-    z-index:100;
+    rgba(91,110,225,.35);
 
 }
 
 
+
 .add-button::before {
 
-    content:none;
+    content:"+";
+
+    display:block;
+
+    font-size:36px;
+
+    font-weight:300;
+
+    line-height:1;
+
+    transform:translateY(-2px);
 
 }
 
@@ -621,13 +611,7 @@ body {
     inset:0;
 
     background:
-
-    rgba(
-        0,
-        0,
-        0,
-        .35
-    );
+    rgba(0,0,0,.35);
 
 }
 
@@ -648,21 +632,15 @@ body {
 
 
     border-radius:
-
     25px 25px 0 0;
 
 
     padding:
-
     25px 18px 35px;
 
 
     animation:
-
     slideUp .25s ease;
-
-
-    overflow:hidden;
 
 }
 
@@ -671,16 +649,12 @@ body {
 @keyframes slideUp {
 
     from {
-
         transform:translateY(100%);
-
     }
 
 
     to {
-
         transform:translateY(0);
-
     }
 
 }
@@ -697,9 +671,7 @@ body {
 
 
 
-/* =========================
-   INPUTS FIX
-========================= */
+/* INPUTS */
 
 
 .sheet-box input {
@@ -732,13 +704,14 @@ body {
 
     display:block;
 
-    line-height:normal;
+
+    line-height:52px;
 
 }
 
 
 
-/* DATE / TIME */
+/* DATE TIME */
 
 
 .sheet-box input[type="date"],
@@ -753,7 +726,7 @@ body {
     padding:0 14px;
 
 
-    line-height:normal;
+    line-height:52px;
 
 
     -webkit-appearance:none;
@@ -767,11 +740,11 @@ body {
 .sheet-box input::-webkit-date-and-time-value {
 
 
+    height:52px;
+
+    line-height:52px;
+
     text-align:left;
-
-    height:auto;
-
-    line-height:normal;
 
 }
 
