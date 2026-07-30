@@ -16,8 +16,8 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
 <style>
 
 * {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
 }
 
 
@@ -40,6 +40,7 @@ body {
 
     margin:0;
     min-height:100vh;
+
     font-family:Arial,sans-serif;
 
     background:
@@ -56,7 +57,9 @@ body {
 
     width:100%;
     max-width:650px;
+
     margin:auto;
+
     padding:18px 14px 100px;
 
 }
@@ -69,20 +72,27 @@ body {
 .header {
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     margin-bottom:22px;
 
 }
 
 
+
 .logo {
 
     display:flex;
+
     align-items:center;
+
     gap:12px;
 
 }
+
 
 
 .logo-icon {
@@ -91,7 +101,9 @@ body {
     height:52px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     font-size:28px;
@@ -99,43 +111,55 @@ body {
     border-radius:18px;
 
     background:
-    linear-gradient(135deg,#6677ed,#8b63e8);
+    linear-gradient(
+        135deg,
+        #6677ed,
+        #8b63e8
+    );
 
 }
+
 
 
 .logo-title {
 
     font-size:23px;
+
     font-weight:800;
 
 }
 
 
+
 .logo-subtitle {
 
     margin-top:3px;
+
     font-size:13px;
+
     color:var(--muted);
 
 }
 
 
+
 .refresh {
 
     width:44px;
+
     height:44px;
 
     border:0;
+
     border-radius:15px;
 
     font-size:20px;
 
     background:var(--card);
+
     color:var(--text);
 
 }
-
 
 
 
@@ -145,10 +169,13 @@ body {
 .tabs {
 
     display:flex;
+
     gap:8px;
+
     margin-bottom:22px;
 
 }
+
 
 
 .tab {
@@ -158,6 +185,7 @@ body {
     padding:11px 8px;
 
     border:0;
+
     border-radius:14px;
 
     background:var(--card);
@@ -165,21 +193,24 @@ body {
     color:var(--muted);
 
     font-size:14px;
+
     font-weight:700;
 
 }
 
 
+
 .tab.active {
 
     background:var(--accent);
+
     color:white;
 
 }
 
 
 
-/* CONTENT */
+/* CARDS */
 
 
 .section {
@@ -189,18 +220,23 @@ body {
 }
 
 
+
 .section-title {
 
     display:flex;
+
     align-items:center;
+
     gap:8px;
 
     margin:0 4px 11px;
 
     font-size:15px;
+
     font-weight:800;
 
 }
+
 
 
 .section-count {
@@ -212,6 +248,7 @@ body {
     border-radius:20px;
 
     background:var(--accent-soft);
+
     color:var(--accent);
 
     font-size:12px;
@@ -247,21 +284,27 @@ body {
 .reminder-top {
 
     display:flex;
+
     align-items:flex-start;
+
     gap:12px;
 
 }
 
 
+
 .reminder-icon {
 
     width:43px;
+
     height:43px;
 
     flex:0 0 auto;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     border-radius:14px;
@@ -277,14 +320,17 @@ body {
 .reminder-content {
 
     flex:1;
+
     min-width:0;
 
 }
 
 
+
 .reminder-text {
 
     font-size:16px;
+
     font-weight:750;
 
     line-height:1.35;
@@ -310,6 +356,7 @@ body {
 .reminder-actions {
 
     display:flex;
+
     gap:8px;
 
     margin-top:14px;
@@ -353,6 +400,8 @@ body {
 }
 
 
+
+/* STATES */
 
 
 .state {
@@ -398,6 +447,7 @@ body {
 .loader {
 
     width:35px;
+
     height:35px;
 
     margin:35px auto;
@@ -413,10 +463,13 @@ body {
 }
 
 
+
 @keyframes spin {
 
     to {
+
         transform:rotate(360deg);
+
     }
 
 }
@@ -425,7 +478,6 @@ body {
 </style>
 
 </head>
-
 
 
 <body>
@@ -481,25 +533,19 @@ onclick="loadReminders()">
 
 <button class="tab active"
 onclick="setTab('all',this)">
-
 Все
-
 </button>
 
 
 <button class="tab"
 onclick="setTab('today',this)">
-
 Сегодня
-
 </button>
 
 
 <button class="tab"
 onclick="setTab('future',this)">
-
 Позже
-
 </button>
 
 
@@ -525,10 +571,9 @@ const WEBHOOK_URL =
 "https://hook.eu1.make.com/wfwptrf4nlkieqbdxoeci4mcce8t0ht3";
 
 
-let reminders = [];
+let reminders=[];
 
-let currentTab = "all";
-
+let currentTab="all";
 
 
 const tg =
@@ -537,7 +582,6 @@ window.Telegram
 window.Telegram.WebApp
 :
 null;
-
 
 
 if(tg){
@@ -550,9 +594,7 @@ if(tg){
 
 
 
-
 function getUserId(){
-
 
     if(
         tg &&
@@ -573,7 +615,7 @@ function getUserId(){
 
 /* LOAD */
 
-async function loadReminders() {
+async function loadReminders(){
 
     const content =
     document.getElementById("content");
@@ -583,16 +625,13 @@ async function loadReminders() {
     '<div class="loader"></div>';
 
 
-    try {
+    try{
 
 
         const response =
         await fetch(
-
             WEBHOOK_URL,
-
             {
-
                 method:"POST",
 
                 headers:{
@@ -606,12 +645,13 @@ async function loadReminders() {
                 })
 
             }
-
         );
+
 
 
         const responseText =
         await response.text();
+
 
 
         console.log(
@@ -620,19 +660,19 @@ async function loadReminders() {
         );
 
 
+
         let data =
         JSON.parse(responseText);
 
 
 
         /*
-            Иногда Make возвращает:
+            Поддержка ответа Make вида:
 
             {
-                Body:"{json}"
+                Body:"{...}"
             }
 
-            исправляем это
         */
 
 
@@ -670,8 +710,9 @@ async function loadReminders() {
 
 
 
+
         console.log(
-            "Распарсенный ответ:",
+            "Разобранный ответ:",
             data
         );
 
@@ -687,7 +728,6 @@ async function loadReminders() {
             );
 
         }
-
 
 
 
@@ -707,7 +747,9 @@ async function loadReminders() {
 
 
 
-        if(!Array.isArray(received)){
+        if(
+            !Array.isArray(received)
+        ){
 
             received =
             [received];
@@ -717,6 +759,7 @@ async function loadReminders() {
 
 
         reminders =
+
         received.map(item=>{
 
 
@@ -733,67 +776,46 @@ async function loadReminders() {
 
             return {
 
-
                 id:
                 String(
                     item.id ??
-                    item.ID ??
                     ""
                 ),
 
 
                 text:
                 String(
-
                     item.text ??
-                    item.Текст ??
-                    item["Текст"] ??
                     "Без текста"
-
                 ),
 
 
                 date:
                 String(
-
                     item.date ??
-                    item.Дата ??
-                    item["Дата"] ??
                     ""
-
                 ),
 
 
                 time:
                 String(
-
                     item.time ??
-                    item.Время ??
-                    item["Время"] ??
                     ""
-
                 ),
 
 
                 repeat:
                 String(
-
                     item.repeat ??
-                    item.Повтор ??
                     ""
-
                 ),
 
 
                 status:
                 String(
-
                     item.status ??
-                    item.Статус ??
                     ""
-
                 )
-
 
             };
 
@@ -811,12 +833,12 @@ async function loadReminders() {
 
         sortReminders();
 
+
         render();
 
 
+
     }
-
-
     catch(error){
 
 
@@ -826,11 +848,13 @@ async function loadReminders() {
         );
 
 
+
         content.innerHTML =
 
         `
 
         <div class="state">
+
 
             <div class="state-icon">
                 ⚠️
@@ -863,6 +887,8 @@ async function loadReminders() {
 
 
 
+
+
 /* SORT */
 
 
@@ -873,9 +899,9 @@ function sortReminders(){
 
         (a,b)=>
 
-            getDate(a)
-            -
-            getDate(b)
+        getDate(a)
+        -
+        getDate(b)
 
     );
 
@@ -885,13 +911,19 @@ function sortReminders(){
 
 
 
-/* TAB */
+
+/* TABS */
 
 
-function setTab(tab,button){
+function setTab(
+    tab,
+    button
+){
 
 
-    currentTab = tab;
+    currentTab =
+    tab;
+
 
 
     document
@@ -920,32 +952,33 @@ function setTab(tab,button){
 
 
 
+
 /* DATE */
 
 
-function getDate(reminder){
+function getDate(
+    reminder
+){
 
 
     return new Date(
 
-        String(
-            reminder.date || ""
-        )
-
+        reminder.date
         +
-
         "T"
-
         +
-
-        String(
-            reminder.time || "00:00"
+        (
+            reminder.time
+            ||
+            "00:00"
         )
 
     );
 
 
 }
+
+
 
 
 
@@ -983,6 +1016,7 @@ function isToday(date){
 
 
 
+
 /* RENDER */
 
 
@@ -1002,15 +1036,17 @@ function render(){
 
 
     const filtered =
-    reminders.filter(reminder=>{
+    reminders.filter(item=>{
 
 
         const date =
-        getDate(reminder);
+        getDate(item);
 
 
 
-        if(currentTab==="today"){
+        if(
+            currentTab === "today"
+        ){
 
             return isToday(date);
 
@@ -1018,7 +1054,9 @@ function render(){
 
 
 
-        if(currentTab==="future"){
+        if(
+            currentTab === "future"
+        ){
 
             return (
                 date >= now
@@ -1038,8 +1076,9 @@ function render(){
 
 
 
-
-    if(filtered.length===0){
+    if(
+        filtered.length === 0
+    ){
 
 
         content.innerHTML =
@@ -1077,15 +1116,18 @@ function render(){
 
 
 
-
     const overdue =
+
     filtered.filter(item=>
+
         getDate(item)<now
+
     );
 
 
 
     const today =
+
     filtered.filter(item=>
 
         isToday(
@@ -1101,18 +1143,18 @@ function render(){
 
 
     const future =
+
     filtered.filter(item=>
+
+        getDate(item)>=now
+
+        &&
 
         !isToday(
             getDate(item)
         )
 
-        &&
-
-        getDate(item)>=now
-
     );
-
 
 
 
@@ -1158,13 +1200,13 @@ function render(){
 
 
 
-    content.innerHTML = html;
+    content.innerHTML =
+    html;
 
 
 }
 
 /* SECTION */
-
 
 function section(
     icon,
@@ -1172,7 +1214,6 @@ function section(
     items,
     overdue = false
 ){
-
 
     return `
 
@@ -1217,7 +1258,6 @@ function section(
 
     `;
 
-
 }
 
 
@@ -1226,7 +1266,6 @@ function section(
 
 /* CARD */
 
-
 function card(
     item,
     overdue
@@ -1234,54 +1273,45 @@ function card(
 
 
     console.log(
-        "Карточка получила:",
+        "CARD ITEM:",
         item
     );
 
 
 
     const text =
-    escapeHtml(
-
-        item?.text
-        ||
-        "Без текста"
-
-    );
+    item && item.text
+    ?
+    item.text
+    :
+    "Без текста";
 
 
 
     const date =
-    escapeHtml(
-
-        item?.date
-        ||
-        ""
-
-    );
+    item && item.date
+    ?
+    item.date
+    :
+    "";
 
 
 
     const time =
-    escapeHtml(
-
-        item?.time
-        ||
-        ""
-
-    );
+    item && item.time
+    ?
+    item.time
+    :
+    "";
 
 
 
     const id =
-    escapeAttribute(
-
-        item?.id
-        ||
-        ""
-
-    );
-
+    item && item.id
+    ?
+    item.id
+    :
+    "";
 
 
 
@@ -1305,32 +1335,28 @@ function card(
             <div class="reminder-content">
 
 
-
                 <div class="reminder-text">
 
-                    ${text}
+                    ${escapeHtml(text)}
 
                 </div>
-
 
 
 
                 <div class="reminder-date">
 
 
-                    📅 ${date}
+                    📅 ${escapeHtml(date)}
 
                     ·
 
-                    ⏰ ${time}
+                    ⏰ ${escapeHtml(time)}
 
 
                 </div>
 
 
-
             </div>
-
 
 
         </div>
@@ -1347,7 +1373,7 @@ function card(
 
                 class="done"
 
-                onclick="completeReminder('${id}')"
+                onclick="completeReminder('${escapeAttribute(id)}')"
 
             >
 
@@ -1373,7 +1399,6 @@ function card(
 
 
     `;
-
 
 }
 
@@ -1409,9 +1434,7 @@ function escapeHtml(value){
 
 
     const div =
-    document.createElement(
-        "div"
-    );
+    document.createElement("div");
 
 
     div.textContent =
@@ -1424,6 +1447,7 @@ function escapeHtml(value){
 
 
 }
+
 
 
 
