@@ -7,6 +7,7 @@
 }
 
 
+
 html,
 body {
 
@@ -17,6 +18,7 @@ body {
 }
 
 
+
 body {
 
     margin:0;
@@ -25,10 +27,8 @@ body {
 
     font-family:Arial,sans-serif;
 
-    background:
-    var(--tg-theme-bg-color,var(--bg));
+    background:var(--bg);
 
-    color:
-    var(--tg-theme-text-color,var(--text));
+    color:var(--text);
 
 }
