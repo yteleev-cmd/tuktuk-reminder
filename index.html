@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-
 <html lang="ru">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-
->
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>Тук-Тук</title>
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
 
 <style>
 
@@ -23,472 +20,430 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
     -webkit-tap-highlight-color: transparent;
 }
 
+
 :root {
-    --bg: #f3f5f9;
-    --card: #ffffff;
-    --text: #1d2433;
-    --muted: #7b8494;
-    --accent: #5b6ee1;
-    --accent-soft: #e9ecff;
-    --danger: #e45b5b;
-    --danger-soft: #ffe9e9;
-    --border: #e5e8ef;
+
+    --bg:#f3f5f9;
+    --card:#ffffff;
+    --text:#1d2433;
+    --muted:#7b8494;
+    --accent:#5b6ee1;
+    --accent-soft:#e9ecff;
+    --danger:#e45b5b;
+    --danger-soft:#ffe9e9;
+    --border:#e5e8ef;
+
 }
+
 
 body {
-    margin: 0;
-    min-height: 100vh;
 
-    font-family: Arial, sans-serif;
+    margin:0;
+    min-height:100vh;
+    font-family:Arial,sans-serif;
 
     background:
-    var(
-        --tg-theme-bg-color,
-        var(--bg)
-    );
+    var(--tg-theme-bg-color,var(--bg));
 
     color:
-    var(
-        --tg-theme-text-color,
-        var(--text)
-    );
+    var(--tg-theme-text-color,var(--text));
+
 }
+
+
 
 .app {
 
-    width: 100%;
-
-    max-width: 650px;
-
-    margin: auto;
-
-    padding: 18px 14px 100px;
+    width:100%;
+    max-width:650px;
+    margin:auto;
+    padding:18px 14px 100px;
 
 }
+
+
 
 /* HEADER */
 
+
 .header {
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    margin-bottom: 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:22px;
 
 }
+
 
 .logo {
 
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
+    display:flex;
+    align-items:center;
+    gap:12px;
 
 }
+
 
 .logo-icon {
 
-    width: 52px;
+    width:52px;
+    height:52px;
 
-    height: 52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    display: flex;
+    font-size:28px;
 
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 28px;
-
-    border-radius: 18px;
+    border-radius:18px;
 
     background:
-    linear-gradient(
-        135deg,
-        #6677ed,
-        #8b63e8
-    );
-
-    box-shadow:
-    0 8px 22px
-    rgba(
-        91,
-        110,
-        225,
-        .28
-    );
+    linear-gradient(135deg,#6677ed,#8b63e8);
 
 }
+
 
 .logo-title {
 
-    font-size: 23px;
-
-    font-weight: 800;
+    font-size:23px;
+    font-weight:800;
 
 }
+
 
 .logo-subtitle {
 
-    margin-top: 3px;
-
-    font-size: 13px;
-
-    color: var(--muted);
+    margin-top:3px;
+    font-size:13px;
+    color:var(--muted);
 
 }
+
 
 .refresh {
 
-    width: 44px;
+    width:44px;
+    height:44px;
 
-    height: 44px;
+    border:0;
+    border-radius:15px;
 
-    border: 0;
+    font-size:20px;
 
-    border-radius: 15px;
-
-    font-size: 20px;
-
-    cursor: pointer;
-
-    background: var(--card);
-
-    color: var(--text);
-
-    box-shadow:
-    0 4px 16px
-    rgba(
-        20,
-        30,
-        60,
-        .08
-    );
+    background:var(--card);
+    color:var(--text);
 
 }
+
+
+
 
 /* TABS */
 
+
 .tabs {
 
-    display: flex;
-
-    gap: 8px;
-
-    margin-bottom: 22px;
+    display:flex;
+    gap:8px;
+    margin-bottom:22px;
 
 }
+
 
 .tab {
 
-    flex: 1;
+    flex:1;
 
-    padding: 11px 8px;
+    padding:11px 8px;
 
-    border: 0;
+    border:0;
+    border-radius:14px;
 
-    border-radius: 14px;
+    background:var(--card);
 
-    background: var(--card);
+    color:var(--muted);
 
-    color: var(--muted);
-
-    font-size: 14px;
-
-    font-weight: 700;
+    font-size:14px;
+    font-weight:700;
 
 }
+
 
 .tab.active {
 
-    background: var(--accent);
-
-    color: white;
+    background:var(--accent);
+    color:white;
 
 }
 
-/* SECTION */
+
+
+/* CONTENT */
+
 
 .section {
 
-    margin-top: 26px;
+    margin-top:26px;
 
 }
+
 
 .section-title {
 
-    display: flex;
+    display:flex;
+    align-items:center;
+    gap:8px;
 
-    align-items: center;
+    margin:0 4px 11px;
 
-    gap: 8px;
-
-    margin: 0 4px 11px;
-
-    font-size: 15px;
-
-    font-weight: 800;
+    font-size:15px;
+    font-weight:800;
 
 }
+
 
 .section-count {
 
-    margin-left: auto;
+    margin-left:auto;
 
-    padding: 3px 9px;
+    padding:3px 9px;
 
-    border-radius: 20px;
+    border-radius:20px;
 
-    background: var(--accent-soft);
+    background:var(--accent-soft);
+    color:var(--accent);
 
-    color: var(--accent);
-
-    font-size: 12px;
+    font-size:12px;
 
 }
 
-/* CARD */
+
 
 .reminder {
 
-    margin-bottom: 10px;
+    margin-bottom:10px;
 
-    padding: 15px;
+    padding:15px;
 
-    border:
-    1px solid
-    var(--border);
+    border:1px solid var(--border);
 
-    border-radius: 19px;
+    border-radius:19px;
 
-    background: var(--card);
-
-    box-shadow:
-    0 5px 18px
-    rgba(
-        20,
-        30,
-        60,
-        .05
-    );
+    background:var(--card);
 
 }
+
+
 
 .reminder.overdue {
 
-    border-left:
-    5px solid
-    var(--danger);
+    border-left:5px solid var(--danger);
 
 }
+
+
 
 .reminder-top {
 
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 12px;
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
 
 }
+
 
 .reminder-icon {
 
-    width: 43px;
+    width:43px;
+    height:43px;
 
-    height: 43px;
+    flex:0 0 auto;
 
-    flex: 0 0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    display: flex;
+    border-radius:14px;
 
-    align-items: center;
+    background:var(--accent-soft);
 
-    justify-content: center;
-
-    border-radius: 14px;
-
-    background:
-    var(--accent-soft);
-
-    font-size: 21px;
+    font-size:21px;
 
 }
 
-.reminder.overdue
-.reminder-icon {
 
-    background:
-    var(--danger-soft);
-
-}
 
 .reminder-content {
 
-    flex: 1;
-
-    min-width: 0;
+    flex:1;
+    min-width:0;
 
 }
+
 
 .reminder-text {
 
-    font-size: 16px;
+    font-size:16px;
+    font-weight:750;
 
-    font-weight: 750;
+    line-height:1.35;
 
-    line-height: 1.35;
-
-    word-break: break-word;
+    word-break:break-word;
 
 }
+
+
 
 .reminder-date {
 
-    margin-top: 6px;
+    margin-top:6px;
 
-    color: var(--muted);
+    color:var(--muted);
 
-    font-size: 13px;
+    font-size:13px;
 
 }
+
+
 
 .reminder-actions {
 
-    display: flex;
+    display:flex;
+    gap:8px;
 
-    gap: 8px;
-
-    margin-top: 14px;
+    margin-top:14px;
 
 }
+
+
 
 .done {
 
-    flex: 1;
+    flex:1;
 
-    border: 0;
+    border:0;
 
-    padding: 10px;
+    padding:10px;
 
-    border-radius: 12px;
+    border-radius:12px;
 
-    background:
-    var(--accent-soft);
+    background:var(--accent-soft);
 
-    color:
-    var(--accent);
+    color:var(--accent);
 
-    font-size: 13px;
-
-    font-weight: 750;
+    font-weight:750;
 
 }
+
+
 
 .more {
 
-    width: 42px;
+    width:42px;
 
-    border: 0;
+    border:0;
 
-    border-radius: 12px;
+    border-radius:12px;
 
-    background: #f1f3f7;
+    background:#f1f3f7;
 
-    font-size: 18px;
+    font-size:18px;
 
 }
 
-/* STATES */
+
+
 
 .state {
 
-    padding: 55px 20px;
+    padding:55px 20px;
 
-    text-align: center;
+    text-align:center;
 
-    color: var(--muted);
+    color:var(--muted);
 
 }
+
 
 .state-icon {
 
-    font-size: 50px;
+    font-size:50px;
 
-    margin-bottom: 14px;
+    margin-bottom:14px;
 
 }
+
 
 .state-title {
 
-    color: var(--text);
+    color:var(--text);
 
-    font-size: 18px;
+    font-size:18px;
 
-    font-weight: 800;
+    font-weight:800;
 
 }
+
 
 .state-text {
 
-    margin-top: 7px;
+    margin-top:7px;
 
-    font-size: 14px;
+    font-size:14px;
 
 }
+
 
 .loader {
 
-    width: 35px;
+    width:35px;
+    height:35px;
 
-    height: 35px;
+    margin:35px auto;
 
-    margin: 35px auto;
+    border:4px solid var(--accent-soft);
 
-    border:
-    4px solid
-    var(--accent-soft);
+    border-top-color:var(--accent);
 
-    border-top-color:
-    var(--accent);
+    border-radius:50%;
 
-    border-radius: 50%;
-
-    animation:
-    spin .8s linear infinite;
+    animation:spin .8s linear infinite;
 
 }
+
 
 @keyframes spin {
 
     to {
-
-        transform:
-        rotate(360deg);
-
+        transform:rotate(360deg);
     }
 
 }
+
 
 </style>
 
 </head>
 
+
+
 <body>
+
 
 <div class="app">
 
+
 <header class="header">
 
+
 <div class="logo">
+
 
 <div class="logo-icon">
 🔔
 </div>
+
 
 <div>
 
@@ -496,60 +451,61 @@ body {
 Тук-Тук TEST 123
 </div>
 
+
 <div class="logo-subtitle">
 Мои напоминания
 </div>
 
-</div>
 
 </div>
 
-<button
-class="refresh"
-onclick="loadReminders()"
 
->
+</div>
 
-↻ </button>
+
+
+<button class="refresh"
+onclick="loadReminders()">
+
+↻
+
+</button>
+
 
 </header>
 
+
+
 <div class="tabs">
 
-<button
-class="tab active"
-onclick="setTab(
-'all',
-this
-)"
 
->
+<button class="tab active"
+onclick="setTab('all',this)">
 
-Все </button>
+Все
 
-<button
-class="tab"
-onclick="setTab(
-'today',
-this
-)"
+</button>
 
->
 
-Сегодня </button>
+<button class="tab"
+onclick="setTab('today',this)">
 
-<button
-class="tab"
-onclick="setTab(
-'future',
-this
-)"
+Сегодня
 
->
+</button>
 
-Позже </button>
+
+<button class="tab"
+onclick="setTab('future',this)">
+
+Позже
+
+</button>
+
 
 </div>
+
+
 
 <main id="content">
 
@@ -557,19 +513,23 @@ this
 
 </main>
 
+
 </div>
 
+
+
 <script>
+
 
 const WEBHOOK_URL =
 "https://hook.eu1.make.com/wfwptrf4nlkieqbdxoeci4mcce8t0ht3";
 
+
 let reminders = [];
 
-let currentTab =
-"all";
+let currentTab = "all";
 
-/* TELEGRAM */
+
 
 const tg =
 window.Telegram
@@ -578,7 +538,9 @@ window.Telegram.WebApp
 :
 null;
 
-if (tg) {
+
+
+if(tg){
 
     tg.ready();
 
@@ -586,39 +548,26 @@ if (tg) {
 
 }
 
-/* USER */
 
-function getUserId() {
 
-    if (
 
-        tg
+function getUserId(){
 
-        &&
 
-        tg.initDataUnsafe
-
-        &&
-
+    if(
+        tg &&
+        tg.initDataUnsafe &&
         tg.initDataUnsafe.user
-
-    ) {
+    ){
 
         return String(
-
-            tg
-            .initDataUnsafe
-            .user
-            .id
-
+            tg.initDataUnsafe.user.id
         );
 
     }
 
-    /* ТЕСТ В ОБЫЧНОМ БРАУЗЕРЕ */
 
-    return
-    "264483752";
+    return "264483752";
 
 }
 
@@ -627,43 +576,32 @@ function getUserId() {
 async function loadReminders() {
 
     const content =
+    document.getElementById("content");
 
-    document
-    .getElementById(
-        "content"
-    );
 
     content.innerHTML =
-
     '<div class="loader"></div>';
+
 
     try {
 
-        const response =
 
+        const response =
         await fetch(
 
             WEBHOOK_URL,
 
             {
 
-                method:
-                "POST",
+                method:"POST",
 
-                headers:
-                {
-
-                    "Content-Type":
-                    "application/json"
-
+                headers:{
+                    "Content-Type":"application/json"
                 },
 
-                body:
+                body:JSON.stringify({
 
-                JSON.stringify({
-
-                    user_id:
-                    getUserId()
+                    user_id:getUserId()
 
                 })
 
@@ -671,153 +609,222 @@ async function loadReminders() {
 
         );
 
-        const responseText =
 
+        const responseText =
         await response.text();
 
-        let data;
 
-        try {
+        console.log(
+            "Сырой ответ Make:",
+            responseText
+        );
 
-            data =
 
-            JSON.parse(
-                responseText
-            );
+        let data =
+        JSON.parse(responseText);
 
-        }
 
-        catch {
 
-            throw new Error(
+        /*
+            Иногда Make возвращает:
 
-                "Make вернул не JSON: "
+            {
+                Body:"{json}"
+            }
 
-                +
+            исправляем это
+        */
 
-                responseText
 
-            );
-
-        }
-
-        /* ЕСЛИ ВЕСЬ ОТВЕТ ПРИШЁЛ СТРОКОЙ */
-
-        if (
-
-            typeof data
-
-            ===
-
-            "string"
-
-        ) {
+        if(data.Body){
 
             data =
+            typeof data.Body === "string"
 
-            JSON.parse(
-                data
-            );
+            ?
+
+            JSON.parse(data.Body)
+
+            :
+
+            data.Body;
 
         }
 
-        if (
 
-            !data
 
-            ||
+        if(data.body){
 
-            !data.success
+            data =
+            typeof data.body === "string"
 
-        ) {
+            ?
+
+            JSON.parse(data.body)
+
+            :
+
+            data.body;
+
+        }
+
+
+
+        console.log(
+            "Распарсенный ответ:",
+            data
+        );
+
+
+
+        if(
+            !data ||
+            data.success !== true
+        ){
 
             throw new Error(
-
                 "Некорректный ответ Make"
-
             );
 
         }
+
+
+
 
         let received =
+        data.reminders || [];
 
-        data.reminders
 
-        ||
 
-        [];
-
-        /* ЕСЛИ reminders ПРИШЁЛ СТРОКОЙ */
-
-        if (
-
-            typeof received
-
-            ===
-
-            "string"
-
-        ) {
+        if(
+            typeof received === "string"
+        ){
 
             received =
-
-            JSON.parse(
-                received
-            );
+            JSON.parse(received);
 
         }
 
-        /* ЕСЛИ КАЖДОЕ НАПОМИНАНИЕ ПРИШЛО СТРОКОЙ */
+
+
+        if(!Array.isArray(received)){
+
+            received =
+            [received];
+
+        }
+
+
 
         reminders =
+        received.map(item=>{
 
-        received.map(
 
-            item => {
+            if(
+                typeof item === "string"
+            ){
 
-                if (
-
-                    typeof item
-
-                    ===
-
-                    "string"
-
-                ) {
-
-                    return
-
-                    JSON.parse(
-                        item
-                    );
-
-                }
-
-                return item;
+                item =
+                JSON.parse(item);
 
             }
 
+
+
+            return {
+
+
+                id:
+                String(
+                    item.id ??
+                    item.ID ??
+                    ""
+                ),
+
+
+                text:
+                String(
+
+                    item.text ??
+                    item.Текст ??
+                    item["Текст"] ??
+                    "Без текста"
+
+                ),
+
+
+                date:
+                String(
+
+                    item.date ??
+                    item.Дата ??
+                    item["Дата"] ??
+                    ""
+
+                ),
+
+
+                time:
+                String(
+
+                    item.time ??
+                    item.Время ??
+                    item["Время"] ??
+                    ""
+
+                ),
+
+
+                repeat:
+                String(
+
+                    item.repeat ??
+                    item.Повтор ??
+                    ""
+
+                ),
+
+
+                status:
+                String(
+
+                    item.status ??
+                    item.Статус ??
+                    ""
+
+                )
+
+
+            };
+
+
+        });
+
+
+
+        console.log(
+            "Готовые напоминания:",
+            reminders
         );
+
+
 
         sortReminders();
 
         render();
 
+
     }
 
-    catch (
 
-        error
+    catch(error){
 
-    ) {
 
         console.error(
-
             "Ошибка Mini App:",
-
             error
-
         );
+
 
         content.innerHTML =
 
@@ -825,130 +832,104 @@ async function loadReminders() {
 
         <div class="state">
 
-        <div class="state-icon">
-        ⚠️
-        </div>
+            <div class="state-icon">
+                ⚠️
+            </div>
 
-        <div class="state-title">
 
-        Не удалось загрузить
+            <div class="state-title">
+                Не удалось загрузить
+            </div>
 
-        </div>
 
-        <div class="state-text">
+            <div class="state-text">
 
-        ${escapeHtml(
+                ${escapeHtml(
+                    error.message
+                )}
 
-            error.message
+            </div>
 
-        )}
-
-        </div>
 
         </div>
 
         `;
 
+
     }
 
+
 }
+
+
 
 /* SORT */
 
-function sortReminders() {
+
+function sortReminders(){
+
 
     reminders.sort(
 
-        function(
-
-            a,
-
-            b
-
-        ) {
-
-            return
+        (a,b)=>
 
             getDate(a)
-
             -
-
-            getDate(b);
-
-        }
+            getDate(b)
 
     );
 
+
 }
+
+
+
 
 /* TAB */
 
-function setTab(
 
-    tab,
+function setTab(tab,button){
 
-    button
 
-) {
+    currentTab = tab;
 
-    currentTab =
-
-    tab;
 
     document
+    .querySelectorAll(".tab")
+    .forEach(item=>{
 
-    .querySelectorAll(
-
-        ".tab"
-
-    )
-
-    .forEach(
-
-        item =>
-
-        item.classList
-
-        .remove(
-
+        item.classList.remove(
             "active"
+        );
 
-        )
+    });
 
-    );
 
-    button
 
-    .classList
-
-    .add(
-
+    button.classList.add(
         "active"
-
     );
+
+
 
     render();
 
+
 }
+
+
+
 
 /* DATE */
 
-function getDate(
 
-    reminder
+function getDate(reminder){
 
-) {
 
     return new Date(
 
         String(
-
-            reminder.date
-
-            ||
-
-            ""
-
+            reminder.date || ""
         )
 
         +
@@ -958,146 +939,108 @@ function getDate(
         +
 
         String(
-
-            reminder.time
-
-            ||
-
-            "00:00"
-
+            reminder.time || "00:00"
         )
 
     );
 
+
 }
 
-function isToday(
 
-    date
 
-) {
+function isToday(date){
+
 
     const now =
-
     new Date();
 
-    return
 
-    date.getFullYear()
 
-    ===
+    return (
 
-    now.getFullYear()
+        date.getFullYear()
+        ===
+        now.getFullYear()
 
-    &&
+        &&
 
-    date.getMonth()
+        date.getMonth()
+        ===
+        now.getMonth()
 
-    ===
+        &&
 
-    now.getMonth()
+        date.getDate()
+        ===
+        now.getDate()
 
-    &&
+    );
 
-    date.getDate()
-
-    ===
-
-    now.getDate();
 
 }
+
+
+
 
 /* RENDER */
 
-function render() {
+
+function render(){
+
 
     const content =
-
-    document
-
-    .getElementById(
-
+    document.getElementById(
         "content"
-
     );
 
-    const now =
 
+
+    const now =
     new Date();
 
+
+
     const filtered =
+    reminders.filter(reminder=>{
 
-    reminders.filter(
 
-        reminder => {
+        const date =
+        getDate(reminder);
 
-            const date =
 
-            getDate(
 
-                reminder
+        if(currentTab==="today"){
 
-            );
-
-            if (
-
-                currentTab
-
-                ===
-
-                "today"
-
-            ) {
-
-                return
-
-                isToday(
-
-                    date
-
-                );
-
-            }
-
-            if (
-
-                currentTab
-
-                ===
-
-                "future"
-
-            ) {
-
-                return
-
-                date >= now
-
-                &&
-
-                !isToday(
-
-                    date
-
-                );
-
-            }
-
-            return true;
+            return isToday(date);
 
         }
 
-    );
 
-    if (
 
-        filtered.length
+        if(currentTab==="future"){
 
-        ===
+            return (
+                date >= now
+                &&
+                !isToday(date)
+            );
 
-        0
+        }
 
-    ) {
+
+
+        return true;
+
+
+    });
+
+
+
+
+
+    if(filtered.length===0){
+
 
         content.innerHTML =
 
@@ -1105,416 +1048,416 @@ function render() {
 
         <div class="state">
 
-        <div class="state-icon">
-        🎉
-        </div>
 
-        <div class="state-title">
+            <div class="state-icon">
+                🎉
+            </div>
 
-        Напоминаний нет
 
-        </div>
+            <div class="state-title">
+                Напоминаний нет
+            </div>
 
-        <div class="state-text">
 
-        Всё спокойно
+            <div class="state-text">
+                Всё спокойно
+            </div>
 
-        </div>
 
         </div>
 
         `;
 
+
         return;
 
     }
 
+
+
+
+
+
     const overdue =
-
-    filtered.filter(
-
-        reminder =>
-
-        getDate(
-
-            reminder
-
-        )
-
-        <
-
-        now
-
+    filtered.filter(item=>
+        getDate(item)<now
     );
+
+
 
     const today =
-
-    filtered.filter(
-
-        reminder =>
+    filtered.filter(item=>
 
         isToday(
-
-            getDate(
-
-                reminder
-
-            )
-
+            getDate(item)
         )
 
         &&
 
-        getDate(
-
-            reminder
-
-        )
-
-        >=
-
-        now
+        getDate(item)>=now
 
     );
+
+
 
     const future =
-
-    filtered.filter(
-
-        reminder =>
+    filtered.filter(item=>
 
         !isToday(
-
-            getDate(
-
-                reminder
-
-            )
-
+            getDate(item)
         )
 
         &&
 
-        getDate(
-
-            reminder
-
-        )
-
-        >=
-
-        now
+        getDate(item)>=now
 
     );
 
-    let html =
 
-    "";
 
-    if (
 
-        overdue.length
 
-    ) {
+    let html="";
 
-        html +=
 
-        section(
 
+    if(overdue.length){
+
+        html += section(
             "🔴",
-
             "Просрочено",
-
             overdue,
-
             true
-
         );
 
     }
 
-    if (
 
-        today.length
 
-    ) {
+    if(today.length){
 
-        html +=
-
-        section(
-
+        html += section(
             "🟡",
-
             "Сегодня",
-
             today
-
         );
 
     }
 
-    if (
 
-        future.length
 
-    ) {
+    if(future.length){
 
-        html +=
-
-        section(
-
+        html += section(
             "🟢",
-
             "Позже",
-
             future
-
         );
 
     }
 
-    content.innerHTML =
 
-    html;
+
+    content.innerHTML = html;
+
 
 }
 
 /* SECTION */
 
+
 function section(
-
     icon,
-
     title,
-
     items,
-
     overdue = false
+){
 
-) {
 
-    return
-
-    `
+    return `
 
     <section class="section">
 
-    <div class="section-title">
 
-    ${icon}
+        <div class="section-title">
 
-    ${title}
+            ${icon}
 
-    <span class="section-count">
+            ${title}
 
-    ${items.length}
 
-    </span>
+            <span class="section-count">
 
-    </div>
+                ${items.length}
 
-    ${
+            </span>
 
-        items
 
-        .map(
+        </div>
 
-            item =>
 
-            card(
 
-                item,
+        ${
 
-                overdue
+            items
+            .map(item=>
+
+                card(
+                    item,
+                    overdue
+                )
 
             )
+            .join("")
 
-        )
+        }
 
-        .join(
-
-            ""
-
-        )
-
-    }
 
     </section>
 
     `;
 
+
 }
+
+
+
+
 
 /* CARD */
 
-function card(item, overdue) {
+
+function card(
+    item,
+    overdue
+){
+
 
     console.log(
         "Карточка получила:",
         item
     );
 
+
+
     const text =
+    escapeHtml(
+
         item?.text
-        ??
-        "Без текста";
+        ||
+        "Без текста"
+
+    );
+
+
 
     const date =
+    escapeHtml(
+
         item?.date
-        ??
-        "";
-
-    const time =
-        item?.time
-        ??
-        "";
-
-    return `
-
-    <article class="reminder ${overdue ? "overdue" : ""}">
-
-        <div class="reminder-top">
-
-            <div class="reminder-icon">
-                🔔
-            </div>
-
-            <div class="reminder-content">
-
-                <div class="reminder-text">
-                    ${text}
-                </div>
-
-                <div class="reminder-date">
-                    📅 ${date}
-                    ·
-                    ⏰ ${time}
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="reminder-actions">
-
-            <button
-                class="done"
-                onclick="completeReminder('${item?.id ?? ""}')"
-            >
-                ✓ Выполнено
-            </button>
-
-            <button class="more">
-                ⋮
-            </button>
-
-        </div>
-
-    </article>
-
-    `;
-
-}
-
-/* COMPLETE */
-
-function completeReminder(
-
-    id
-
-) {
-
-    alert(
-
-        "Позже здесь будет "
-
-        +
-
-        "отметка выполнения. "
-
-        +
-
-        "ID: "
-
-        +
-
-        id
-
-    );
-
-}
-
-/* ESCAPE */
-
-function escapeHtml(
-
-    value
-
-) {
-
-    const div =
-
-    document
-
-    .createElement(
-
-        "div"
-
-    );
-
-    div.textContent =
-
-    String(
-
-        value
-
-        ??
-
+        ||
         ""
 
     );
 
-    return
 
-    div.innerHTML;
 
-}
+    const time =
+    escapeHtml(
 
-function escapeAttribute(
-
-    value
-
-) {
-
-    return escapeHtml(
-
-        value
-
-    )
-
-    .replace(
-
-        /"/g,
-
-        "&quot;"
-
-    )
-
-    .replace(
-
-        /'/g,
-
-        "&#39;"
+        item?.time
+        ||
+        ""
 
     );
 
+
+
+    const id =
+    escapeAttribute(
+
+        item?.id
+        ||
+        ""
+
+    );
+
+
+
+
+    return `
+
+
+    <article class="reminder ${overdue ? "overdue" : ""}">
+
+
+        <div class="reminder-top">
+
+
+            <div class="reminder-icon">
+
+                🔔
+
+            </div>
+
+
+
+            <div class="reminder-content">
+
+
+
+                <div class="reminder-text">
+
+                    ${text}
+
+                </div>
+
+
+
+
+                <div class="reminder-date">
+
+
+                    📅 ${date}
+
+                    ·
+
+                    ⏰ ${time}
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+        <div class="reminder-actions">
+
+
+
+            <button
+
+                class="done"
+
+                onclick="completeReminder('${id}')"
+
+            >
+
+                ✓ Выполнено
+
+            </button>
+
+
+
+            <button class="more">
+
+                ⋮
+
+            </button>
+
+
+
+        </div>
+
+
+
+    </article>
+
+
+    `;
+
+
 }
+
+
+
+
+
+/* COMPLETE */
+
+
+function completeReminder(id){
+
+
+    alert(
+
+        "Позже здесь будет отметка выполнения.\n\nID: "
+        +
+        id
+
+    );
+
+
+}
+
+
+
+
+
+/* ESCAPE */
+
+
+function escapeHtml(value){
+
+
+    const div =
+    document.createElement(
+        "div"
+    );
+
+
+    div.textContent =
+    String(
+        value ?? ""
+    );
+
+
+    return div.innerHTML;
+
+
+}
+
+
+
+
+function escapeAttribute(value){
+
+
+    return escapeHtml(value)
+
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+
+    .replace(
+        /'/g,
+        "&#39;"
+    );
+
+
+}
+
+
+
+
 
 /* START */
 
+
 loadReminders();
 
+
 </script>
+
 
 </body>
 
