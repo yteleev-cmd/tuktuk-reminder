@@ -11,8 +11,7 @@ const LOAD_WEBHOOK =
 
 
 const ACTION_WEBHOOK =
-"ВСТАВЬ_СЮДА_ОБЩИЙ_WEBHOOK";
-
+"https://hook.eu1.make.com/r7xkkfr1ug4a33v54zqi8ebf0hl71zyx";
 
 
 
@@ -54,6 +53,13 @@ export async function fetchReminders(){
 
 
 
+    console.log(
+        "Загрузка:",
+        data
+    );
+
+
+
     if(data.Body){
 
         data =
@@ -61,9 +67,7 @@ export async function fetchReminders(){
 
         ?
 
-        JSON.parse(
-            data.Body
-        )
+        JSON.parse(data.Body)
 
         :
 
@@ -96,16 +100,12 @@ export async function fetchReminders(){
 
 
 
-
-// СОЗДАНИЕ НАПОМИНАНИЯ
-
 export async function createReminder(reminder){
 
 
     return sendAction({
 
-        action:
-        "create",
+        action:"create",
 
 
         user_id:
@@ -124,13 +124,10 @@ export async function createReminder(reminder){
         reminder.time,
 
 
-        repeat:
-        "",
+        repeat:"",
 
 
-        status:
-        "Активно"
-
+        status:"Активно"
 
     });
 
@@ -145,16 +142,12 @@ export async function createReminder(reminder){
 
 
 
-
-// ВЫПОЛНЕНИЕ
-
 export async function completeReminder(id){
 
 
     return sendAction({
 
-        action:
-        "complete",
+        action:"complete",
 
 
         user_id:
@@ -164,9 +157,7 @@ export async function completeReminder(id){
         id:id,
 
 
-        status:
-        "Выполнено"
-
+        status:"Выполнено"
 
     });
 
@@ -181,14 +172,11 @@ export async function completeReminder(id){
 
 
 
-
-// ОБЩАЯ ОТПРАВКА В MAKE
-
 async function sendAction(payload){
 
 
     console.log(
-        "Отправляем:",
+        "Действие:",
         payload
     );
 
@@ -223,19 +211,7 @@ async function sendAction(payload){
 
 
 
-    let result =
-    await response.json();
-
-
-
-    console.log(
-        "Ответ Make:",
-        result
-    );
-
-
-
-    return result;
+    return await response.json();
 
 
 }
