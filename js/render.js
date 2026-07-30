@@ -5,8 +5,7 @@ from "./state.js";
 
 
 import {
-    escapeHtml,
-    escapeAttribute
+    escapeHtml
 }
 from "./utils.js";
 
@@ -99,6 +98,7 @@ function isToday(date){
 
 
 
+
 export function render(){
 
 
@@ -117,6 +117,7 @@ export function render(){
 
 
 
+
     const filtered =
     reminders.filter(item=>{
 
@@ -131,6 +132,7 @@ export function render(){
             return isToday(date);
 
         }
+
 
 
 
@@ -154,6 +156,7 @@ export function render(){
 
 
 
+
     if(filtered.length===0){
 
 
@@ -165,13 +168,16 @@ export function render(){
             🎉
             </div>
 
+
             <div class="state-title">
             Напоминаний нет
             </div>
 
+
             <div class="state-text">
             Всё спокойно
             </div>
+
 
         </div>
 
@@ -181,6 +187,7 @@ export function render(){
         return;
 
     }
+
 
 
 
@@ -213,6 +220,7 @@ ${icon}
 
 ${title}
 
+
 <span class="section-count">
 ${items.length}
 </span>
@@ -240,6 +248,7 @@ items.map(item=>card(item)).join("")
 
 
 
+
 function card(item){
 
 
@@ -257,6 +266,7 @@ return `
 
 
 
+
 <div class="reminder-content">
 
 
@@ -265,6 +275,7 @@ return `
 ${escapeHtml(item.text)}
 
 </div>
+
 
 
 
@@ -287,17 +298,25 @@ ${escapeHtml(item.text)}
 
 
 
+
+
 <div class="reminder-actions">
 
 
-<button class="done">
+<button
+class="done"
+onclick="completeReminder('${item.id}')">
 
 ✓ Выполнено
 
 </button>
 
 
-<button class="more">
+
+
+<button
+class="more"
+onclick="openReminderMenu('${item.id}')">
 
 ⋮
 
@@ -314,6 +333,42 @@ ${escapeHtml(item.text)}
 `;
 
 }
+
+
+
+
+
+
+// обработчик кнопки выполнено
+
+window.completeReminder =
+function(id){
+
+    console.log(
+        "Выполнить:",
+        id
+    );
+
+
+};
+
+
+
+
+
+// обработчик троеточия
+
+window.openReminderMenu =
+function(id){
+
+    console.log(
+        "Меню:",
+        id
+    );
+
+};
+
+
 
 
 

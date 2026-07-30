@@ -10,8 +10,10 @@ const LOAD_WEBHOOK =
 
 
 
-const CREATE_WEBHOOK =
-"https://hook.eu1.make.com/r7xkkfr1ug4a33v54zqi8ebf0hl71zyx";
+const ACTION_WEBHOOK =
+"ВСТАВЬ_СЮДА_ОБЩИЙ_WEBHOOK";
+
+
 
 
 
@@ -71,9 +73,7 @@ export async function fetchReminders(){
 
 
 
-    if(
-        !data.success
-    ){
+    if(!data.success){
 
         throw new Error(
             "Ошибка загрузки напоминаний"
@@ -96,10 +96,16 @@ export async function fetchReminders(){
 
 
 
+
+// СОЗДАНИЕ НАПОМИНАНИЯ
+
 export async function createReminder(reminder){
 
 
-    const payload = {
+    return sendAction({
+
+        action:
+        "create",
 
 
         user_id:
@@ -126,12 +132,63 @@ export async function createReminder(reminder){
         "Активно"
 
 
-    };
+    });
 
+
+}
+
+
+
+
+
+
+
+
+
+
+// ВЫПОЛНЕНИЕ
+
+export async function completeReminder(id){
+
+
+    return sendAction({
+
+        action:
+        "complete",
+
+
+        user_id:
+        getUserId(),
+
+
+        id:id,
+
+
+        status:
+        "Выполнено"
+
+
+    });
+
+
+}
+
+
+
+
+
+
+
+
+
+
+// ОБЩАЯ ОТПРАВКА В MAKE
+
+async function sendAction(payload){
 
 
     console.log(
-        "Отправляем в Make:",
+        "Отправляем:",
         payload
     );
 
@@ -140,7 +197,7 @@ export async function createReminder(reminder){
     const response =
     await fetch(
 
-        CREATE_WEBHOOK,
+        ACTION_WEBHOOK,
 
         {
 
