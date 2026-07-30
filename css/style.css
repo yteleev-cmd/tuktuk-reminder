@@ -4,8 +4,22 @@
 
 
 * {
+
     box-sizing:border-box;
+
     -webkit-tap-highlight-color:transparent;
+
+}
+
+
+
+html,
+body {
+
+    width:100%;
+
+    overflow-x:hidden;
+
 }
 
 
@@ -29,6 +43,7 @@
 body {
 
     margin:0;
+
     min-height:100vh;
 
     font-family:Arial,sans-serif;
@@ -43,9 +58,13 @@ body {
 
 
 
+/* APP */
+
+
 .app {
 
     width:100%;
+
     max-width:650px;
 
     margin:auto;
@@ -103,6 +122,7 @@ body {
 
 
     background:
+
     linear-gradient(
         135deg,
         #6677ed,
@@ -472,14 +492,16 @@ body {
 @keyframes spin {
 
     to {
+
         transform:rotate(360deg);
+
     }
 
 }
 
 
 
-/* FLOATING BUTTON */
+/* FLOAT BUTTON */
 
 
 .add-button {
@@ -506,21 +528,16 @@ body {
     color:white;
 
 
-    font-size:32px;
-
-    font-weight:300;
-
-    line-height:1;
-
-
-    padding:0;
-
-
     display:flex;
 
     align-items:center;
 
     justify-content:center;
+
+
+    padding:0;
+
+    margin:0;
 
 
     box-shadow:
@@ -536,6 +553,24 @@ body {
 
 
     z-index:100;
+
+}
+
+
+
+.add-button::before {
+
+    content:"+";
+
+    display:block;
+
+    font-size:36px;
+
+    font-weight:300;
+
+    line-height:1;
+
+    transform:translateY(-1px);
 
 }
 
@@ -581,7 +616,13 @@ body {
     inset:0;
 
     background:
-    rgba(0,0,0,.35);
+
+    rgba(
+        0,
+        0,
+        0,
+        .35
+    );
 
 }
 
@@ -602,15 +643,21 @@ body {
 
 
     border-radius:
+
     25px 25px 0 0;
 
 
     padding:
+
     25px 18px 35px;
 
 
     animation:
+
     slideUp .25s ease;
+
+
+    overflow:hidden;
 
 }
 
@@ -619,11 +666,16 @@ body {
 @keyframes slideUp {
 
     from {
+
         transform:translateY(100%);
+
     }
 
+
     to {
+
         transform:translateY(0);
+
     }
 
 }
@@ -650,7 +702,10 @@ body {
     max-width:100%;
 
 
-    padding:14px;
+    height:50px;
+
+
+    padding:0 14px;
 
 
     margin-bottom:12px;
@@ -677,8 +732,6 @@ body {
 
 
 
-/* DATE TIME FIX */
-
 .sheet-box input[type="date"],
 .sheet-box input[type="time"] {
 
@@ -692,14 +745,11 @@ body {
 
 
 
-/* SAVE */
-
-
 .save-button {
 
     width:100%;
 
-    padding:14px;
+    height:50px;
 
 
     border:0;
