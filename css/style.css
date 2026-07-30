@@ -86,7 +86,6 @@ body {
 }
 
 
-
 .logo {
 
     display:flex;
@@ -96,7 +95,6 @@ body {
     gap:12px;
 
 }
-
 
 
 .logo-icon {
@@ -125,7 +123,6 @@ body {
 }
 
 
-
 .logo-title {
 
     font-size:23px;
@@ -133,7 +130,6 @@ body {
     font-weight:800;
 
 }
-
 
 
 .logo-subtitle {
@@ -146,6 +142,9 @@ body {
 
 }
 
+
+
+/* REFRESH */
 
 
 .refresh {
@@ -182,7 +181,6 @@ body {
 }
 
 
-
 .tab {
 
     flex:1;
@@ -202,7 +200,6 @@ body {
     font-weight:700;
 
 }
-
 
 
 .tab.active {
@@ -332,7 +329,6 @@ body {
 }
 
 
-
 .done {
 
     flex:1;
@@ -422,6 +418,8 @@ body {
 
     justify-content:center;
 
+    overflow:hidden;
+
     z-index:100;
 
     box-shadow:
@@ -430,20 +428,23 @@ body {
 }
 
 
-
 .add-button::before {
 
     content:"+";
 
     display:block;
 
+    font-family:Arial,sans-serif;
+
     font-size:38px;
 
     font-weight:300;
 
-    line-height:1;
+    line-height:38px;
 
-    transform:translateY(-2px);
+    height:38px;
+
+    transform:translateY(-1px);
 
 }
 
@@ -509,6 +510,8 @@ body {
 
     width:100%;
 
+    max-width:100vw;
+
     overflow:hidden;
 
     background:var(--card);
@@ -570,7 +573,7 @@ body {
 
 
 
-/* DATE TIME */
+/* DATE TIME FIX */
 
 
 .sheet-box input[type="date"],
@@ -584,18 +587,19 @@ body {
 
     height:52px;
 
+    padding:0 14px;
+
     box-sizing:border-box;
 
-    padding:0 10px;
+    -webkit-appearance:none;
 
-    font-size:16px;
+    appearance:none;
 
 }
 
 
 
-/* IOS / ANDROID */
-
+/* iOS */
 
 .sheet-box input::-webkit-date-and-time-value {
 
