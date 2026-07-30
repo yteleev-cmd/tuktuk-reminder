@@ -1347,189 +1347,68 @@ function section(
 
 /* CARD */
 
-function card(
+function card(item, overdue) {
 
-    item,
-
-    overdue
-
-) {
-
-    const date =
-
-    getDate(
-
+    console.log(
+        "Карточка получила:",
         item
-
-    );
-
-    const formatted =
-
-    isNaN(
-
-        date.getTime()
-
-    )
-
-    ?
-
-    "Дата не указана"
-
-    :
-
-    date
-
-    .toLocaleDateString(
-
-        "ru-RU",
-
-        {
-
-            day:
-            "numeric",
-
-            month:
-            "long"
-
-        }
-
     );
 
     const text =
+        item?.text
+        ??
+        "Без текста";
 
-    item.text
-
-    ||
-
-    item.Текст
-
-    ||
-
-    item.title
-
-    ||
-
-    "Без текста";
+    const date =
+        item?.date
+        ??
+        "";
 
     const time =
+        item?.time
+        ??
+        "";
 
-    item.time
+    return `
 
-    ||
+    <article class="reminder ${overdue ? "overdue" : ""}">
 
-    item.Время
+        <div class="reminder-top">
 
-    ||
+            <div class="reminder-icon">
+                🔔
+            </div>
 
-    "";
+            <div class="reminder-content">
 
-    return
+                <div class="reminder-text">
+                    ${text}
+                </div>
 
-    `
+                <div class="reminder-date">
+                    📅 ${date}
+                    ·
+                    ⏰ ${time}
+                </div>
 
-    <article
+            </div>
 
-    class="reminder
+        </div>
 
-    ${
+        <div class="reminder-actions">
 
-        overdue
+            <button
+                class="done"
+                onclick="completeReminder('${item?.id ?? ""}')"
+            >
+                ✓ Выполнено
+            </button>
 
-        ?
+            <button class="more">
+                ⋮
+            </button>
 
-        "overdue"
-
-        :
-
-        ""
-
-    }
-
-    ">
-
-    <div class="reminder-top">
-
-    <div class="reminder-icon">
-
-    🔔
-
-    </div>
-
-    <div class="reminder-content">
-
-    <div class="reminder-text">
-
-    ${escapeHtml(
-
-        text
-
-    )}
-
-    </div>
-
-    <div class="reminder-date">
-
-    📅
-
-    ${formatted}
-
-    ·
-
-    ⏰
-
-    ${escapeHtml(
-
-        time
-
-    )}
-
-    </div>
-
-    </div>
-
-    </div>
-
-    <div class="reminder-actions">
-
-    <button
-
-    class="done"
-
-    onclick="completeReminder(
-
-        '${
-
-            escapeAttribute(
-
-                item.id
-
-                ||
-
-                ""
-
-            )
-
-        }'
-
-    )"
-
-    >
-
-    ✓ Выполнено
-
-    </button>
-
-    <button
-
-    class="more"
-
-    >
-
-    ⋮
-
-    </button>
-
-    </div>
+        </div>
 
     </article>
 
