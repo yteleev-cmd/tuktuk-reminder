@@ -10,6 +10,8 @@
 
     background:var(--card);
 
+    color:var(--text);
+
 }
 
 
@@ -62,17 +64,25 @@
 
 .reminder-text {
 
+    display:block;
+
+    color:var(--text);
+
     font-size:16px;
 
     font-weight:700;
 
     line-height:1.35;
 
+    word-break:break-word;
+
 }
 
 
 
 .reminder-date {
+
+    display:block;
 
     margin-top:6px;
 
@@ -95,5 +105,77 @@
 .reminder.completed .reminder-text {
 
     text-decoration:line-through;
+
+}
+
+
+
+/* кнопки карточки */
+
+.reminder-actions {
+
+    display:flex;
+
+    width:100%;
+
+    gap:8px;
+
+    margin-top:14px;
+
+}
+
+
+
+.done {
+
+    flex:1;
+
+    height:42px;
+
+    border:0;
+
+    border-radius:12px;
+
+    background:var(--accent-soft);
+
+    color:var(--accent);
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
+
+
+.done:disabled {
+
+    opacity:.7;
+
+}
+
+
+
+.more {
+
+    width:42px;
+
+    height:42px;
+
+    border:0;
+
+    border-radius:12px;
+
+    background:#f1f3f7;
+
+    color:var(--text);
+
+    font-size:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 
 }
