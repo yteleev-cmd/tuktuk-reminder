@@ -11,8 +11,11 @@
 
 html,
 body {
+
     width:100%;
+
     overflow-x:hidden;
+
 }
 
 
@@ -32,7 +35,9 @@ body {
 
 
 
-/* BODY */
+/* =========================
+   BODY
+========================= */
 
 
 body {
@@ -53,7 +58,9 @@ body {
 
 
 
-/* APP */
+/* =========================
+   APP
+========================= */
 
 
 .app {
@@ -70,7 +77,9 @@ body {
 
 
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 
 .header {
@@ -84,6 +93,7 @@ body {
     margin-bottom:22px;
 
 }
+
 
 
 .logo {
@@ -101,6 +111,7 @@ body {
 .logo-icon {
 
     width:52px;
+
     height:52px;
 
     display:flex;
@@ -166,7 +177,9 @@ body {
 
 
 
-/* TABS */
+/* =========================
+   TABS
+========================= */
 
 
 .tabs {
@@ -312,9 +325,9 @@ body {
 
 }
 
-
-
-/* CARD BUTTONS */
+/* =========================
+   CARD BUTTONS
+========================= */
 
 
 .reminder-actions {
@@ -471,19 +484,13 @@ body {
 
     position:fixed;
 
-    left:0;
-
-    right:0;
-
-    top:0;
-
-    bottom:0;
-
-    height:100dvh;
+    inset:0;
 
     display:none;
 
     z-index:200;
+
+    overflow:hidden;
 
 }
 
@@ -491,7 +498,9 @@ body {
 
 .sheet.show {
 
-    display:block;
+    display:flex;
+
+    align-items:flex-end;
 
 }
 
@@ -504,27 +513,24 @@ body {
     inset:0;
 
     background:
+
     rgba(0,0,0,.35);
 
 }
 
 
 
+/* главный фикс iOS */
+
 .sheet-box {
 
-    position:absolute;
-
-    left:0;
-
-    right:0;
-
-    bottom:0;
+    position:relative;
 
     width:100%;
 
     max-width:100vw;
 
-    max-height:90dvh;
+    max-height:75dvh;
 
     overflow-y:auto;
 
@@ -539,6 +545,7 @@ body {
     padding:
 
     25px 16px
+
     calc(35px + env(safe-area-inset-bottom));
 
 }
@@ -564,13 +571,9 @@ body {
 
     width:100%;
 
-    max-width:100%;
-
-    min-width:0;
-
     height:52px;
 
-    margin:0 0 12px 0;
+    margin:0 0 12px;
 
     padding:0 14px;
 
@@ -596,29 +599,21 @@ body {
 
 
 
-/* DATE TIME */
+/* =========================
+   DATE / TIME
+========================= */
 
 
 .sheet-box input[type="date"],
 .sheet-box input[type="time"] {
 
-    display:block;
-
     width:100%;
-
-    max-width:100%;
-
-    min-width:0;
 
     height:52px;
 
     min-height:52px;
 
     padding:0 14px;
-
-    box-sizing:border-box;
-
-    line-height:normal;
 
     -webkit-appearance:none;
 
@@ -628,50 +623,9 @@ body {
 
 
 
-/* iOS date/time */
-
-
-.sheet-box input::-webkit-date-and-time-value {
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:flex-start;
-
-    height:52px;
-
-    line-height:normal;
-
-}
-
-
-
-.sheet-box input::-webkit-datetime-edit {
-
-    display:flex;
-
-    align-items:center;
-
-    height:52px;
-
-}
-
-
-
-.sheet-box input::-webkit-datetime-edit-fields-wrapper {
-
-    display:flex;
-
-    align-items:center;
-
-    height:52px;
-
-}
-
-
-
-/* SAVE */
+/* =========================
+   SAVE BUTTON
+========================= */
 
 
 .save-button {
@@ -706,7 +660,7 @@ body {
 
     .sheet {
 
-        height:100dvh;
+        height:100%;
 
     }
 
@@ -714,20 +668,13 @@ body {
 
     .sheet-box {
 
-        max-height:90dvh;
+        max-height:75vh;
 
-        padding-top:20px;
+        max-height:75dvh;
 
         padding-bottom:
+
         calc(35px + env(safe-area-inset-bottom));
-
-    }
-
-
-
-    .sheet-box h2 {
-
-        margin-bottom:15px;
 
     }
 
@@ -735,8 +682,9 @@ body {
 }
 
 
+
 /* =========================
-   MOBILE SAFE AREA
+   MOBILE
 ========================= */
 
 
