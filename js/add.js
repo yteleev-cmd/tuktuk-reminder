@@ -5,6 +5,8 @@ from "./api.js";
 
 
 
+
+
 function openAddReminder(){
 
 
@@ -28,6 +30,9 @@ function openAddReminder(){
 
 
 
+
+
+
 function setDefaultDateTime(){
 
 
@@ -35,9 +40,33 @@ function setDefaultDateTime(){
     new Date();
 
 
+
+    const year =
+    now.getFullYear();
+
+
+
+    const month =
+    String(
+        now.getMonth()+1
+    )
+    .padStart(2,"0");
+
+
+
+    const day =
+    String(
+        now.getDate()
+    )
+    .padStart(2,"0");
+
+
+
     const date =
-    now.toISOString()
-    .split("T")[0];
+    `${year}-${month}-${day}`;
+
+
+
 
 
     now.setMinutes(
@@ -45,9 +74,28 @@ function setDefaultDateTime(){
     );
 
 
+
+
+    const hours =
+    String(
+        now.getHours()
+    )
+    .padStart(2,"0");
+
+
+
+    const minutes =
+    String(
+        now.getMinutes()
+    )
+    .padStart(2,"0");
+
+
+
     const time =
-    now.toTimeString()
-    .slice(0,5);
+    `${hours}:${minutes}`;
+
+
 
 
 
@@ -55,7 +103,10 @@ function setDefaultDateTime(){
     .getElementById(
         "reminder-date"
     )
-    .value = date;
+    .value =
+    date;
+
+
 
 
 
@@ -63,10 +114,16 @@ function setDefaultDateTime(){
     .getElementById(
         "reminder-time"
     )
-    .value = time;
+    .value =
+    time;
+
 
 
 }
+
+
+
+
 
 
 
@@ -92,6 +149,10 @@ function closeAddReminder(){
 
 
 
+
+
+
+
 async function saveReminder(){
 
 
@@ -106,6 +167,8 @@ async function saveReminder(){
 
 
 
+
+
     const date =
     document
     .getElementById(
@@ -115,12 +178,17 @@ async function saveReminder(){
 
 
 
+
+
     const time =
     document
     .getElementById(
         "reminder-time"
     )
     .value;
+
+
+
 
 
 
@@ -134,7 +202,11 @@ async function saveReminder(){
 
         return;
 
+
     }
+
+
+
 
 
 
@@ -148,7 +220,11 @@ async function saveReminder(){
 
         return;
 
+
     }
+
+
+
 
 
 
@@ -163,27 +239,39 @@ async function saveReminder(){
         );
 
 
+
         button.disabled=true;
+
 
         button.innerHTML =
         "Создание...";
 
 
 
+
+
+
+
         await createReminder({
 
-            text,
+            text:String(text),
 
-            date,
+            date:String(date),
 
-            time
+            time:String(time)
 
         });
 
 
 
 
+
+
+
         closeAddReminder();
+
+
+
 
 
 
@@ -197,17 +285,29 @@ async function saveReminder(){
 
 
 
+
+
         if(window.loadReminders){
+
 
             window.loadReminders();
 
+
         }
+
 
 
     }
 
 
+
+
     catch(error){
+
+
+        console.error(
+            error
+        );
 
 
         alert(
@@ -216,6 +316,11 @@ async function saveReminder(){
 
 
     }
+
+
+
+
+
 
 
     finally{
@@ -227,16 +332,25 @@ async function saveReminder(){
         );
 
 
+
         button.disabled=false;
+
+
 
         button.innerHTML =
         "Создать";
 
 
+
     }
 
 
+
+
 }
+
+
+
 
 
 
@@ -246,8 +360,10 @@ window.openAddReminder =
 openAddReminder;
 
 
+
 window.closeAddReminder =
 closeAddReminder;
+
 
 
 window.saveReminder =
