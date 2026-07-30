@@ -76,9 +76,7 @@ body {
 .header {
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     margin-bottom:22px;
@@ -89,9 +87,7 @@ body {
 .logo {
 
     display:flex;
-
     align-items:center;
-
     gap:12px;
 
 }
@@ -100,13 +96,10 @@ body {
 .logo-icon {
 
     width:52px;
-
     height:52px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     font-size:28px;
@@ -126,7 +119,6 @@ body {
 .logo-title {
 
     font-size:23px;
-
     font-weight:800;
 
 }
@@ -144,10 +136,12 @@ body {
 
 
 
+/* REFRESH */
+
+
 .refresh {
 
     width:44px;
-
     height:44px;
 
     border:0;
@@ -324,16 +318,15 @@ body {
 }
 
 
-
 .done {
 
     flex:1;
 
-    height:40px;
+    height:42px;
 
     border:0;
 
-    padding:0 12px;
+    padding:0 14px;
 
     border-radius:12px;
 
@@ -348,12 +341,11 @@ body {
 }
 
 
-
 .more {
 
     width:42px;
 
-    height:40px;
+    height:42px;
 
     flex:none;
 
@@ -374,82 +366,6 @@ body {
     justify-content:center;
 
     padding:0;
-
-}
-
-
-
-/* STATE */
-
-
-.state {
-
-    padding:55px 20px;
-
-    text-align:center;
-
-    color:var(--muted);
-
-}
-
-
-.state-icon {
-
-    font-size:50px;
-
-}
-
-
-.state-title {
-
-    margin-top:10px;
-
-    color:var(--text);
-
-    font-size:18px;
-
-    font-weight:800;
-
-}
-
-
-.state-text {
-
-    margin-top:7px;
-
-    font-size:14px;
-
-}
-
-
-
-/* LOADER */
-
-
-.loader {
-
-    width:35px;
-
-    height:35px;
-
-    margin:35px auto;
-
-    border:4px solid var(--accent-soft);
-
-    border-top-color:var(--accent);
-
-    border-radius:50%;
-
-    animation:spin .8s linear infinite;
-
-}
-
-
-@keyframes spin {
-
-    to {
-        transform:rotate(360deg);
-    }
 
 }
 
@@ -492,13 +408,9 @@ body {
 
     font-weight:300;
 
-    line-height:1;
+    line-height:58px;
 
     z-index:100;
-
-    box-shadow:
-    0 10px 25px
-    rgba(91,110,225,.35);
 
 }
 
@@ -525,7 +437,6 @@ body {
     z-index:200;
 
 }
-
 
 
 .sheet.show {
@@ -559,6 +470,10 @@ body {
 
     bottom:0;
 
+    width:100%;
+
+    overflow:hidden;
+
     background:var(--card);
 
     border-radius:
@@ -566,23 +481,6 @@ body {
 
     padding:
     25px 18px 35px;
-
-    animation:
-    slideUp .25s ease;
-
-}
-
-
-
-@keyframes slideUp {
-
-    from {
-        transform:translateY(100%);
-    }
-
-    to {
-        transform:translateY(0);
-    }
 
 }
 
@@ -605,6 +503,8 @@ body {
 
     width:100%;
 
+    max-width:100%;
+
     height:52px;
 
     padding:0 14px;
@@ -623,10 +523,11 @@ body {
 
     font-family:Arial,sans-serif;
 
-    display:block;
-
 }
 
+
+
+/* DATE TIME */
 
 
 .sheet-box input[type="date"],
@@ -636,13 +537,13 @@ body {
 
     height:52px;
 
-    padding:0 14px;
+    max-width:100%;
 
-    box-sizing:border-box;
+    padding:0 12px;
 
-    -webkit-appearance:none;
+    -webkit-appearance:auto;
 
-    appearance:none;
+    appearance:auto;
 
 }
 
@@ -651,6 +552,10 @@ body {
 .sheet-box input::-webkit-date-and-time-value {
 
     text-align:left;
+
+    padding-top:0;
+
+    padding-bottom:0;
 
 }
 
